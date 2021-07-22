@@ -3,14 +3,14 @@
 
 
     <url>
-        <loc>https://jimheo.github.io/tags/Threading/</loc>
+        <loc>https://jimheo.github.io/tags/Mutex/</loc>
         <lastmod>2021-07-22T12:07:03.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/tags/Mutex/</loc>
+        <loc>https://jimheo.github.io/tags/Threading/</loc>
         <lastmod>2021-07-22T12:07:03.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -26,20 +26,6 @@
     <url>
         <loc>https://jimheo.github.io/tags/Python/</loc>
         <lastmod>2021-07-22T12:07:03.515Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
-        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
-        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -82,6 +68,34 @@
     <url>
         <loc>https://jimheo.github.io/tags/CVPR/</loc>
         <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Convolution/</loc>
+        <lastmod>2021-07-06T04:59:20.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Convolution-Neural-Network/</loc>
+        <lastmod>2021-07-06T04:59:20.288Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -157,14 +171,14 @@
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/tags/Convolution/</loc>
+        <loc>https://jimheo.github.io/tags/Gradient-Descent/</loc>
         <lastmod>2020-12-11T09:48:00.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/tags/Convolution-Neural-Network/</loc>
+        <loc>https://jimheo.github.io/tags/Logistic-Regression/</loc>
         <lastmod>2020-12-11T09:48:00.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -193,20 +207,6 @@
 
     <url>
         <loc>https://jimheo.github.io/tags/Computational-Graph/</loc>
-        <lastmod>2020-12-11T09:48:00.332Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Gradient-Descent/</loc>
-        <lastmod>2020-12-11T09:48:00.332Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Logistic-Regression/</loc>
         <lastmod>2020-12-11T09:48:00.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
