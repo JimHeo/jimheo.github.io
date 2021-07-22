@@ -8,16 +8,8 @@
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
-        <lastmod>2021-07-22T12:07:03.515Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
-        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +17,31 @@
 
     <url>
         <loc>https://jimheo.github.io/2018/10/10/concept-of-cnn/</loc>
-        <lastmod>2021-07-06T04:59:20.288Z</lastmod>
+        <lastmod>2021-07-22T12:54:34.650Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2018/10/12/concept-of-data-structure/</loc>
+        <lastmod>2021-07-22T12:54:14.987Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/</loc>
+        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
+        <lastmod>2021-07-22T12:53:43.052Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,7 +49,15 @@
 
     <url>
         <loc>https://jimheo.github.io/2018/10/12/about-heap/</loc>
-        <lastmod>2020-12-23T09:28:29.738Z</lastmod>
+        <lastmod>2021-07-22T12:48:48.101Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
+        <lastmod>2021-07-22T12:07:03.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,30 +74,6 @@
     <url>
         <loc>https://jimheo.github.io/2020/07/03/correlation-between-masks-and-values/</loc>
         <lastmod>2020-12-11T09:51:58.810Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/12/concept-of-data-structure/</loc>
-        <lastmod>2020-12-11T09:48:00.332Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/</loc>
-        <lastmod>2020-12-11T09:48:00.332Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
-        <lastmod>2020-12-11T09:48:00.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
