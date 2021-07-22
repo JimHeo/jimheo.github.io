@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
+        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
         <lastmod>2021-07-22T12:54:58.722Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,14 +58,6 @@
     <url>
         <loc>https://jimheo.github.io/2018/10/12/about-heap/</loc>
         <lastmod>2021-07-22T12:48:48.101Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
-        <lastmod>2021-07-22T12:07:03.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
