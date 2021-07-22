@@ -3,6 +3,62 @@
 
 
     <url>
+        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Instance-Segmentation/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Semantic-Segmentation/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/ECCV/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/ICCV/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/MICCAI/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/CVPR/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/tags/Threading/</loc>
         <lastmod>2021-07-19T12:45:37.715Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -96,62 +152,6 @@
     <url>
         <loc>https://jimheo.github.io/tags/COVID19/</loc>
         <lastmod>2020-12-11T09:51:58.810Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Instance-Segmentation/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Semantic-Segmentation/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/ECCV/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/ICCV/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/MICCAI/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/CVPR/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

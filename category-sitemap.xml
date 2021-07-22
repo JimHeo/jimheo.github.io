@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://jimheo.github.io/categories/Deep-Learning/</loc>
+        <lastmod>2021-07-22T05:29:28.762Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/categories/Programming/</loc>
         <lastmod>2021-07-19T12:45:37.715Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,13 +24,6 @@
     <url>
         <loc>https://jimheo.github.io/categories/Essay/</loc>
         <lastmod>2020-12-15T11:22:20.681Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/categories/Deep-Learning/</loc>
-        <lastmod>2020-12-11T09:48:00.333Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
