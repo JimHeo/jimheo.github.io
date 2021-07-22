@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Multi Layer Perceptron의 문제점해를 거듭할 수록, 정형의 데이터보다는 비정형 데이터가 늘어나는 추세다. 비정형의 데이터를 기존의 MLP로 처리하는 것은 몇가지 단점이 존재한다.이미지를 예로 들어보자. 이미지는 픽셀단위로 이루어진 행렬이며, 일반적인 이미지의 해상도는 최소 64x64부터 시작하는 경우가 많다.Grayscale이 아닌 경우에는">
@@ -250,21 +250,7 @@
                 </span>
             </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/10/10/concept-of-cnn/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/10/concept-of-cnn/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
+          <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -760,16 +746,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 //   })(window, document);
 // </script>
 
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jiminthebox.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 <script>
   var disqus_config = function() {
     this.page.url = "https://jimheo.github.io/2018/10/10/concept-of-cnn/";

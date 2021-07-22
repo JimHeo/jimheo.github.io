@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Complete Binary TreeTree에 대한 기본적인 설명은 루비콘 팀 Martin Kim의 포스트를 참조한다. &amp;#x1f647; Ref: https:&#x2F;&#x2F;blog.martinwork.co.kr&#x2F;theory&#x2F;2018&#x2F;09&#x2F;22&#x2F;what-is-tree.html 추가적으로 Tree에 대해 부가설명을 덧붙인다.Tree의 정의는 다음 2가지를 따른다.">
@@ -256,21 +256,7 @@
                 </span>
             </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/10/12/about-heap/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/12/about-heap/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
+          <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -775,16 +761,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 //   })(window, document);
 // </script>
 
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jiminthebox.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 <script>
   var disqus_config = function() {
     this.page.url = "https://jimheo.github.io/2018/10/12/about-heap/";

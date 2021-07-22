@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="들어가며딥러닝을 입문하며 자연스럽게 파이썬을 함께 공부하게 되었고, 지금은 주 언어로 사용하고 있다. 하지만 나는 파이썬에 대해 얼마나 알고 있을까? C&#x2F;C++ 같은 컴파일 언어만 사용했던 나에게 파이썬은 꽤 난해하게 다가왔다. 사실, 파이썬을 사용하면서 느낀 생각은 “파이썬의 철학(The Zen of Python)과 많이 다른데..?” 였다. 파이썬 철학">
@@ -251,21 +251,7 @@
                 </span>
             </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/06/global-interpreter-lock/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/06/global-interpreter-lock/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
+          <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -860,16 +846,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 //   })(window, document);
 // </script>
 
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jiminthebox.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 <script>
   var disqus_config = function() {
     this.page.url = "https://jimheo.github.io/2021/07/06/global-interpreter-lock/";
