@@ -3,6 +3,146 @@
 
 
     <url>
+        <loc>https://jimheo.github.io/tags/Gradient-Descent/</loc>
+        <lastmod>2021-07-23T09:01:26.421Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Logistic-Regression/</loc>
+        <lastmod>2021-07-23T09:01:26.421Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Backpropagation/</loc>
+        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Derivative/</loc>
+        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Chain-Rule/</loc>
+        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Computational-Graph/</loc>
+        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
+        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
+        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Convolution/</loc>
+        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Convolution-Neural-Network/</loc>
+        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/OOP-Programming/</loc>
+        <lastmod>2021-07-23T08:53:20.637Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Data-Structure/</loc>
+        <lastmod>2021-07-23T08:53:20.637Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Tree/</loc>
+        <lastmod>2021-07-23T08:49:52.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Heap/</loc>
+        <lastmod>2021-07-23T08:49:52.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Instance-Segmentation/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Semantic-Segmentation/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/ECCV/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/ICCV/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/MICCAI/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/CVPR/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/tags/Mutex/</loc>
         <lastmod>2021-07-22T13:21:18.353Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,146 +166,6 @@
     <url>
         <loc>https://jimheo.github.io/tags/Python/</loc>
         <lastmod>2021-07-22T13:21:18.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Instance-Segmentation/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Semantic-Segmentation/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/ECCV/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/ICCV/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/MICCAI/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/CVPR/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Computer-Vision/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Image-Processing/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Convolution/</loc>
-        <lastmod>2021-07-22T12:54:34.650Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Convolution-Neural-Network/</loc>
-        <lastmod>2021-07-22T12:54:34.650Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/OOP-Programming/</loc>
-        <lastmod>2021-07-22T12:54:14.987Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Data-Structure/</loc>
-        <lastmod>2021-07-22T12:54:14.987Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Backpropagation/</loc>
-        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Derivative/</loc>
-        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Chain-Rule/</loc>
-        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Computational-Graph/</loc>
-        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Gradient-Descent/</loc>
-        <lastmod>2021-07-22T12:53:43.052Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Logistic-Regression/</loc>
-        <lastmod>2021-07-22T12:53:43.052Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Tree/</loc>
-        <lastmod>2021-07-22T12:48:48.101Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Heap/</loc>
-        <lastmod>2021-07-22T12:48:48.101Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

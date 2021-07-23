@@ -8,32 +8,8 @@
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
-        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
-        <lastmod>2021-07-22T12:54:58.722Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/10/concept-of-cnn/</loc>
-        <lastmod>2021-07-22T12:54:34.650Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/12/concept-of-data-structure/</loc>
-        <lastmod>2021-07-22T12:54:14.987Z</lastmod>
+        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
+        <lastmod>2021-07-23T09:01:26.421Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,15 +17,23 @@
 
     <url>
         <loc>https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/</loc>
-        <lastmod>2021-07-22T12:54:05.518Z</lastmod>
+        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
-        <lastmod>2021-07-22T12:53:43.052Z</lastmod>
+        <loc>https://jimheo.github.io/2018/10/10/concept-of-cnn/</loc>
+        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2018/10/12/concept-of-data-structure/</loc>
+        <lastmod>2021-07-23T08:53:20.637Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,7 +41,23 @@
 
     <url>
         <loc>https://jimheo.github.io/2018/10/12/about-heap/</loc>
-        <lastmod>2021-07-22T12:48:48.101Z</lastmod>
+        <lastmod>2021-07-23T08:49:52.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
+        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
+        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

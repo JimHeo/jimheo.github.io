@@ -543,12 +543,12 @@
 <p><strong><em>Migration to <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9NZXRhLVNoZWV0LTA0ODJlM2U1MGExNDQ3MTBiMjUzMzE2ODlkMTg3ZTE2Lw==">Meta Sheet<i class="fa fa-external-link-alt"></i></span></em></strong></p>
 </blockquote>
 <hr>
-<h1 id="U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net: Convolutional Networks for Biomedical Image Segmentation"></a>U-Net: Convolutional Networks for Biomedical Image Segmentation</h1><p>MICCAI 2015</p>
+<h2 id="U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net: Convolutional Networks for Biomedical Image Segmentation"></a>U-Net: Convolutional Networks for Biomedical Image Segmentation</h2><p>MICCAI 2015</p>
 <hr>
-<h2 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h2><ul>
+<h3 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h3><ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzE1MDUuMDQ1OTcucGRm">https://arxiv.org/pdf/1505.04597.pdf<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
-<h2 id="Source-Code-Repository"><a href="#Source-Code-Repository" class="headerlink" title="Source Code Repository"></a>Source Code Repository</h2><ul>
+<h3 id="Source-Code-Repository"><a href="#Source-Code-Repository" class="headerlink" title="Source Code Repository"></a>Source Code Repository</h3><ul>
 <li>Official Model: <span class="exturl" data-url="aHR0cHM6Ly9sbWIuaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUvcmVzb3VyY2VzL29wZW5zb3VyY2UvdW5ldC8=">https://lmb.informatik.uni-freiburg.de/resources/opensource/unet/<i class="fa fa-external-link-alt"></i></span><ul>
 <li>Framework: Caffe</li>
 </ul>
@@ -661,12 +661,12 @@
 <br>
 
 <blockquote>
-<p><strong>1. A root node</strong></p>
-<p><strong>2. The remaining nodes are partitioned into $n(n \geq 0)$ disjoint sets $T_1, T_2, … , T_n$ ($T_i$ : subtrees of the root)</strong></p>
+<p><strong>1. A root node</strong><br><strong>2. The remaining nodes are partitioned into $n(n \geq 0)$ disjoint sets $T_1, T_2, … , T_n$ ($T_i$ : subtrees of the root)</strong></p>
 </blockquote>
 <br>
 
-<p>즉, 루트 노드가 존재하며, 0개 이상의 서브트리로 분리된 노드가 존재해야 한다.<br>이 중 Full Binary Tree는 Depth가 $k$일 때, 총 노드의 개수는 $2^k - 1$개인 트리이며,<br>Complete Binary Tree는 Depth가 $k$인 Full Binary Tree를 왼쪽에서부터 순차적으로 읽었을 때, $k-level$에서 Complete Binary Tree의 총 노드 수 $n$의 인덱스를 가진 노드가 존재하는 것을 말한다.<br>이 때, $k =\lceil\log_{2}(n + 1)\rceil$이 성립한다.<br>Complete Binary Tree는 마지막 레벨을 제외하고 모든 레벨이 채워져 있으며, 마지막 레벨의 모든 노드는 가능한 한 가장 왼쪽에 있기 때문에 공간의 낭비가 없어 배열로 구현하는 것이 효율적이다.</p>
+<p>즉, 루트 노드가 존재하며, 0개 이상의 서브트리로 분리된 노드가 존재해야 한다.<br>이 중 Full Binary Tree는 Depth가 $k$일 때, 총 노드의 개수는 $2^k - 1$개인 트리이며,<br>Complete Binary Tree는 Depth가 $k$인 Full Binary Tree를 왼쪽에서부터 순차적으로 읽었을 때, $k-level$에서 Complete Binary Tree의 총 노드 수 $n$의 인덱스를 가진 노드가 존재하는 것을 말한다.</p>
+<p>이 때, $k =\lceil\log_{2}(n + 1)\rceil$이 성립한다.<br>Complete Binary Tree는 마지막 레벨을 제외하고 모든 레벨이 채워져 있으며, 마지막 레벨의 모든 노드는 가능한 한 가장 왼쪽에 있기 때문에 공간의 낭비가 없어 배열로 구현하는 것이 효율적이다.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/10/12/about-heap/#more" rel="contents">
