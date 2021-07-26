@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://jimheo.github.io/tags/Mutex/</loc>
+        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Threading/</loc>
+        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/GIL/</loc>
+        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/tags/Python/</loc>
+        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/tags/Gradient-Descent/</loc>
         <lastmod>2021-07-23T09:01:26.421Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -138,34 +166,6 @@
     <url>
         <loc>https://jimheo.github.io/tags/CVPR/</loc>
         <lastmod>2021-07-23T08:46:48.369Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Mutex/</loc>
-        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Threading/</loc>
-        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/GIL/</loc>
-        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/tags/Python/</loc>
-        <lastmod>2021-07-22T13:21:18.353Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

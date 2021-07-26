@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://preview.redd.it/r2zt0z71yfu31.png?width=640&crop=smart&auto=webp&s=446a79718041098ad4031d8981f0e7e093e5b595">
 <meta property="og:image" content="https://i.pinimg.com/originals/70/10/5f/70105ffd8406c9766503d3f15b6c82b1.jpg">
 <meta property="article:published_time" content="2021-07-06T04:57:09.000Z">
-<meta property="article:modified_time" content="2021-07-22T13:21:18.353Z">
+<meta property="article:modified_time" content="2021-07-26T04:32:54.282Z">
 <meta property="article:author" content="Jim &#x2F; Demian">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="GIL">
@@ -377,7 +377,7 @@
 <p><strong>그러니까 사실은 가급적이면 그냥 싱글 쓰레드로 사용하라는 말이다.</strong></p>
 <p>그렇다면, 왜 파이썬 개발자들은 싱글 쓰레드만도 못한 성능의 이런 병목(Bottleneck)을 굳이 만들었을까? 그냥 멀티 쓰레드 구현 자체를 안해도 되지 않았을까?</p>
 <p>그나마 다행히도 CPU-bound가 아닌 Sleep이나 I/O-bound(입출력에 대한 작업, File, Database, Network)에서는 위 내용이 적용되지 않는다.</p>
-<p>GIL을 채택한 이유로 위에서 말한 것 이외에도 시기적인 측면에서, Python 자체가 개발될 당시에는 Thread 싱글코어의 사용이 일반적이었기 때문에 멀티코어 성능을 향상시키기 위한 목적보다는 다중 I/O 이벤트를 처리하기 위해 GIL을 채택한 것으로 보인다.</p>
+<p>GIL을 채택한 이유로 위에서 말한 것 이외에도 시기적인 측면에서, Python 자체가 개발될 당시에는 싱글코어의 사용이 일반적이었기 때문에 멀티코어 성능을 향상시키기 위한 목적보다는 다중 I/O 이벤트를 처리하기 위해 GIL을 채택한 것으로 보인다.</p>
 <p>그러나 I/O-bound에서는 보통 I/O 이벤트에 대해 처리하는 비용보다 이벤트가 발생하기까지 기다리는 비용이 더 크기 때문에 멀티 쓰레딩을 사용하기보다는 비동기 프로그래밍을 사용하는게 훨씬 이득이다.</p>
 <p><strong>그러니까 다시 말하지만 가급적이면 그냥 싱글 쓰레드로 사용하라는 말이다.</strong></p>
 <br>
