@@ -8,16 +8,8 @@
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
-        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
-        <lastmod>2021-07-23T09:01:26.421Z</lastmod>
+        <loc>https://jimheo.github.io/2018/10/10/concept-of-cnn/</loc>
+        <lastmod>2021-07-27T07:51:35.388Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,15 +17,31 @@
 
     <url>
         <loc>https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/</loc>
-        <lastmod>2021-07-23T08:57:56.064Z</lastmod>
+        <lastmod>2021-07-27T07:49:35.498Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://jimheo.github.io/2018/10/10/concept-of-cnn/</loc>
-        <lastmod>2021-07-23T08:55:30.592Z</lastmod>
+        <loc>https://jimheo.github.io/2018/10/10/ml-study-week1/</loc>
+        <lastmod>2021-07-27T07:49:22.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
+        <lastmod>2021-07-27T07:49:11.587Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2021/07/06/global-interpreter-lock/</loc>
+        <lastmod>2021-07-26T04:32:54.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,14 +58,6 @@
     <url>
         <loc>https://jimheo.github.io/2018/10/12/about-heap/</loc>
         <lastmod>2021-07-23T08:49:52.441Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/</loc>
-        <lastmod>2021-07-23T08:46:48.369Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
