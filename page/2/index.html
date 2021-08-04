@@ -204,6 +204,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2018/10/12/about-heap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim / Demian">
+      <meta itemprop="description" content="Lubycon Dev.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/12/about-heap/" class="post-title-link" itemprop="url">자료구조, 힙(Heap)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-12 17:10:13" itemprop="dateCreated datePublished" datetime="2018-10-12T17:10:13+09:00">2018-10-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h2><p>Tree에 대한 기본적인 설명은 루비콘 팀 Martin Kim의 포스트를 참조한다. <span class="github-emoji" alias="bow" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8">&#x1f647;</span></p>
+<p><strong>Ref: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm1hcnRpbndvcmsuY28ua3IvdGhlb3J5LzIwMTgvMDkvMjIvd2hhdC1pcy10cmVlLmh0bWw=">https://blog.martinwork.co.kr/theory/2018/09/22/what-is-tree.html<i class="fa fa-external-link-alt"></i></span></strong></p>
+<p>추가적으로 Tree에 대해 부가설명을 덧붙인다.<br>Tree의 정의는 다음 2가지를 따른다.</p>
+<br>
+
+<blockquote>
+<p><strong>1. A root node</strong><br><strong>2. The remaining nodes are partitioned into $n(n \geq 0)$ disjoint sets $T_1, T_2, … , T_n$ ($T_i$ : subtrees of the root)</strong></p>
+</blockquote>
+<br>
+
+<p>즉, 루트 노드가 존재하며, 0개 이상의 서브트리로 분리된 노드가 존재해야 한다.<br>이 중 Full Binary Tree는 Depth가 $k$일 때, 총 노드의 개수는 $2^k - 1$개인 트리이며,<br>Complete Binary Tree는 Depth가 $k$인 Full Binary Tree를 왼쪽에서부터 순차적으로 읽었을 때, $k-level$에서 Complete Binary Tree의 총 노드 수 $n$의 인덱스를 가진 노드가 존재하는 것을 말한다.</p>
+<p>이 때, $k =\lceil\log_{2}(n + 1)\rceil$이 성립한다.<br>Complete Binary Tree는 마지막 레벨을 제외하고 모든 레벨이 채워져 있으며, 마지막 레벨의 모든 노드는 가능한 한 가장 왼쪽에 있기 때문에 공간의 낭비가 없어 배열로 구현하는 것이 효율적이다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/12/about-heap/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2018/10/12/concept-of-data-structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -653,7 +752,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -724,13 +823,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">36k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">29 mins.</span>
+    <span title="Reading time total">33 mins.</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
   </div>
