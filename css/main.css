@@ -224,6 +224,14 @@ p {
   margin: 0 0 20px 0;
   font-size: 0.875em;
 }
+ul {
+  font-size: 0.875em;
+}
+sup {
+  font-family: 'Nanum Gothic Coding', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-size: 0.875em;
+  font-weight: bold;
+}
 a,
 span.exturl {
   border-bottom: 1px solid #999;
@@ -238,9 +246,6 @@ a:hover,
 span.exturl:hover {
   border-bottom-color: var(--link-hover-color);
   color: var(--link-hover-color);
-}
-sup {
-  background: #fb9;
 }
 iframe,
 img,
@@ -1443,7 +1448,7 @@ pre code {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6fffff;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

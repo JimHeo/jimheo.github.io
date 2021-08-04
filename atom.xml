@@ -37,15 +37,15 @@
       <category term="Machine Learning" scheme="https://jimheo.github.io/categories/Machine-Learning/"/>
     
     
+      <category term="Convolutional Neural Network" scheme="https://jimheo.github.io/tags/Convolutional-Neural-Network/"/>
+    
       <category term="Image Processing" scheme="https://jimheo.github.io/tags/Image-Processing/"/>
     
       <category term="Computer Vision" scheme="https://jimheo.github.io/tags/Computer-Vision/"/>
     
-      <category term="Semantic Segmentation" scheme="https://jimheo.github.io/tags/Semantic-Segmentation/"/>
-    
-      <category term="Convolutional Neural Network" scheme="https://jimheo.github.io/tags/Convolutional-Neural-Network/"/>
-    
       <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
+    
+      <category term="Semantic Segmentation" scheme="https://jimheo.github.io/tags/Semantic-Segmentation/"/>
     
   </entry>
   
@@ -199,6 +199,10 @@
     
       <category term="Computer Vision" scheme="https://jimheo.github.io/tags/Computer-Vision/"/>
     
+      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
+    
+      <category term="Semantic Segmentation" scheme="https://jimheo.github.io/tags/Semantic-Segmentation/"/>
+    
       <category term="CVPR" scheme="https://jimheo.github.io/tags/CVPR/"/>
     
       <category term="MICCAI" scheme="https://jimheo.github.io/tags/MICCAI/"/>
@@ -207,11 +211,7 @@
     
       <category term="ECCV" scheme="https://jimheo.github.io/tags/ECCV/"/>
     
-      <category term="Semantic Segmentation" scheme="https://jimheo.github.io/tags/Semantic-Segmentation/"/>
-    
       <category term="Instance Segmentation" scheme="https://jimheo.github.io/tags/Instance-Segmentation/"/>
-    
-      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
     
   </entry>
   
@@ -309,11 +309,11 @@
       <category term="Machine Learning" scheme="https://jimheo.github.io/categories/Machine-Learning/"/>
     
     
+      <category term="Convolutional Neural Network" scheme="https://jimheo.github.io/tags/Convolutional-Neural-Network/"/>
+    
       <category term="Image Processing" scheme="https://jimheo.github.io/tags/Image-Processing/"/>
     
       <category term="Computer Vision" scheme="https://jimheo.github.io/tags/Computer-Vision/"/>
-    
-      <category term="Convolutional Neural Network" scheme="https://jimheo.github.io/tags/Convolutional-Neural-Network/"/>
     
       <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
     
@@ -346,6 +346,8 @@
       <category term="Machine Learning" scheme="https://jimheo.github.io/categories/Machine-Learning/"/>
     
     
+      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
+    
       <category term="Computational Graph" scheme="https://jimheo.github.io/tags/Computational-Graph/"/>
     
       <category term="Chain Rule" scheme="https://jimheo.github.io/tags/Chain-Rule/"/>
@@ -353,8 +355,6 @@
       <category term="Derivative" scheme="https://jimheo.github.io/tags/Derivative/"/>
     
       <category term="Backpropagation" scheme="https://jimheo.github.io/tags/Backpropagation/"/>
-    
-      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
     
   </entry>
   
@@ -389,11 +389,11 @@
       <category term="Machine Learning" scheme="https://jimheo.github.io/categories/Machine-Learning/"/>
     
     
+      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
+    
       <category term="Logistic Regression" scheme="https://jimheo.github.io/tags/Logistic-Regression/"/>
     
       <category term="Gradient Descent" scheme="https://jimheo.github.io/tags/Gradient-Descent/"/>
-    
-      <category term="Deep Learning" scheme="https://jimheo.github.io/tags/Deep-Learning/"/>
     
   </entry>
   
