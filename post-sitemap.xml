@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://jimheo.github.io/2020/07/14/retrospective-to-overcome-the-burnout/</loc>
+        <lastmod>2021-08-10T05:11:48.923Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jimheo.github.io/2020/07/03/correlation-between-masks-and-values/</loc>
+        <lastmod>2021-08-10T05:11:32.828Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jimheo.github.io/2021/07/27/deep-learning-from-scratch-to-image-segmentation/</loc>
         <lastmod>2021-08-04T11:39:28.913Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,22 +82,6 @@
     <url>
         <loc>https://jimheo.github.io/2018/10/12/about-heap/</loc>
         <lastmod>2021-07-23T08:49:52.441Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2020/07/14/retrospective-to-overcome-the-burnout/</loc>
-        <lastmod>2020-12-15T11:22:20.681Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jimheo.github.io/2020/07/03/correlation-between-masks-and-values/</loc>
-        <lastmod>2020-12-11T09:51:58.810Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
