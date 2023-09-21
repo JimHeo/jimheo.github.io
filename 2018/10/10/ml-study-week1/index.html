@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#047862">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="naver-site-verification" content="2bd14d67b3d73295d005329855a538d74254ba06">
+<script data-ad-client="ca-pub-3114905834142601" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/piedpiper.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pied.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pied.ico">
+  <link rel="mask-icon" href="/images/piedpiper.svg" color="#047862">
+  <meta name="google-site-verification" content="oQ7HTi1xryHDWx06lTeI5yjUSngiM82UnDecuMqCbzQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum Gothic:300,300italic,400,400italic,700,700italic|Black Han Sans:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="해당 내용은 Andrew Ng의 Deeplearning ai 강의 C1W2까지에 기반을 두고 있습니다.  Introduction머신러닝이란 무엇인가?어떤 알고리즘을 혹은 시스템을 구축할 때 가장 추상적으로 생각할 수 있는 그림은 다음과 같다.     Ref: https:&#x2F;&#x2F;arbs.nzcer.org.nz&#x2F;algebraic-patterns-and-relat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning study 1주차">
+<meta property="og:url" content="https://jimheo.github.io/2018/10/10/ml-study-week1/index.html">
+<meta property="og:site_name" content="JimintheBox">
+<meta property="og:description" content="해당 내용은 Andrew Ng의 Deeplearning ai 강의 C1W2까지에 기반을 두고 있습니다.  Introduction머신러닝이란 무엇인가?어떤 알고리즘을 혹은 시스템을 구축할 때 가장 추상적으로 생각할 수 있는 그림은 다음과 같다.     Ref: https:&#x2F;&#x2F;arbs.nzcer.org.nz&#x2F;algebraic-patterns-and-relat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://arbs.nzcer.org.nz/sites/default/files/media/images/input-output-machine.png">
+<meta property="og:image" content="https://jimheo.github.io/images/ml-study-week1/housepriceprediction.png">
+<meta property="og:image" content="https://i.imgur.com/mZdJLdg.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/1*Xu7B5y9gp0iL5ooBj7LtWw.png">
+<meta property="article:published_time" content="2018-10-10T05:46:13.000Z">
+<meta property="article:modified_time" content="2023-09-21T12:34:47.491Z">
+<meta property="article:author" content="Jim">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Logistic Regression">
+<meta property="article:tag" content="Gradient Descent">
+<meta property="article:tag" content="Classification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://arbs.nzcer.org.nz/sites/default/files/media/images/input-output-machine.png">
+
+<link rel="canonical" href="https://jimheo.github.io/2018/10/10/ml-study-week1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<script>
+  ((w, d) => {
+    'use strict';
+      const userScheme = localStorage.getItem('Scheme');
+      if (!userScheme) return;
+    d.documentElement.className += ' darkScheme';
+  })(window, document);
+</script>
+
+  <title>Machine Learning study 1주차 | JimintheBox</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127400890-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-127400890-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '351974730089565');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=351974730089565&ev=PageView&noscript=1"></noscript>
+  <!-- End Facebook Pixel Code -->
+<link rel="alternate" href="/atom.xml" title="JimintheBox" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="JimintheBox" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <a>
+        <img class="custom-logo-image" src="/images/lubycon-logo-ha-brand-theme.svg" alt="JimintheBox" onclick="toggleImg()">
+      </a>
+      <script>
+        function toggleImg() {
+          const src = document.getElementsByClassName("custom-logo-image")[0].src;
+          if(src.includes("lubycon-logo-ha-brand-theme.svg")){
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-light.svg";
+          }
+          else{
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-brand-theme.svg";
+          }
+        }
+      </script>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JimintheBox</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fas fa-database fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fas fa-terminal fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fab fa-slack-hash fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fas fa-dna fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2018/10/10/ml-study-week1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning study 1주차
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-10 14:46:13" itemprop="dateCreated datePublished" datetime="2018-10-10T14:46:13+09:00">2018-10-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">머신러닝</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">딥러닝</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>해당 내용은 Andrew Ng의 Deeplearning ai 강의 C1W2까지에 기반을 두고 있습니다.</p>
+</blockquote>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="머신러닝이란-무엇인가"><a href="#머신러닝이란-무엇인가" class="headerlink" title="머신러닝이란 무엇인가?"></a>머신러닝이란 무엇인가?</h3><p>어떤 알고리즘을 혹은 시스템을 구축할 때 가장 추상적으로 생각할 수 있는 그림은 다음과 같다.</p>
+<center>
+<img src="https://arbs.nzcer.org.nz/sites/default/files/media/images/input-output-machine.png">
+</center>
+
+<p>Ref: <span class="exturl" data-url="aHR0cHM6Ly9hcmJzLm56Y2VyLm9yZy5uei9hbGdlYnJhaWMtcGF0dGVybnMtYW5kLXJlbGF0aW9uc2hpcHMtZGlmZmVyZW50LXR5cGVzLW51bWJlcnM=">https://arbs.nzcer.org.nz/algebraic-patterns-and-relationships-different-types-numbers<i class="fa fa-external-link-alt"></i></span></p>
+<p>일반적인 구현에서는 위 그림의 Rule 부분을 개발자들이 직접 코드를 작성한다. 그러나 머신러닝은 Input과 Output 혹은 Input만 가지고 여러 방법론에 의하여 컴퓨터에게 학습을 시킨다. 그렇게 되면, 컴퓨터는 학습을 통해 Rule을 작성하게 된다. 그 후 다음의 Input이 들어왔을 경우 작성한 Rule을 통해 Output을 예측한다.</p>
+<p>이는 기존에 사용하던 방법론과는 약간 상반되는 느낌이 있다.  또한, 개발자들이 작성한 Rule은 코드를 볼 수 있기 때문에 틀린 부분을 직접 수정하거나 삭제할 수 있다.</p>
+<p>그러나 컴퓨터가 작성한 Rule은 사람이 볼 수 없는 코드이므로 그에 대한 직접적인 수정이 불가하다.</p>
+<p>이것이 머신러닝을 흔히 블랙박스라 칭하는 이유다.</p>
+<a id="more"></a>
+
+<br>
+
+<h3 id="House-Price-Prediction"><a href="#House-Price-Prediction" class="headerlink" title="House Price Prediction"></a>House Price Prediction</h3><p>Data Mining은 주어진 Dataset으로 현재 데이터들의 상관관계를 분석하는 것이다. 여기서 더 나아간 것이 Machine Learning이며, 머신러닝은 분석된 상관관계를 토대로 앞으로 입력될 데이터에 대한 출력을 예측하는 것이다.</p>
+<p><img src="/images/ml-study-week1/housepriceprediction.png" alt="HOUSINGPREDICTION"></p>
+<p>Ref: <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1uMWwtOWxJTVc3RSZpbmRleD0yJmxpc3Q9UExrRGFFNnNDWm42RWMtWFRiY1gxdVJnMl91NHhPRWt5MA==">deeplearning.ai Andrew Ng<i class="fa fa-external-link-alt"></i></span></p>
+<p>집의 크기로 집값을 예측한다고 가정해보자.</p>
+<p>집의 크기라는 파라미터에 대한 집값이라는 리턴값은 하나의 점으로 매칭이 가능하다. 수많은 데이터들이 있을 경우 이 점들은 결국 하나의 직선 혹은 곡선으로 수렴할 수 있다.</p>
+<p>집의 크기라는 입력과 집값이라는 출력사이에는 하나의 Rule이 있을 것이다.</p>
+<p>머신러닝에서는, 특히 Neural Network는 사람의 신경망을 모티브로 만든 방법론이므로 이를 neuron 혹은 perceptron이라 부른다. 그러나 위의 경우, 혹은 대다수의 상황에서, 하나의 변수만으로 집값을 예측한다는 것은 사실 불가능하다. 집의 위치, 방의 개수, 땅값 등등 집값을 예측하는 데에는 많은 변수가 필요하다.</p>
+<p>즉, 뉴럴 네트워크는 수많은 뉴런들을 나누어 계산하고 그 결과를 다시 새로운 층에 두어 (한 층을 계산해서 나온 출력들은 다시 하나의 변수가 되므로) 마지막 출력이 나올 때까지 계산하는 방식이 되어야 한다.</p>
+<p>이처럼 층이 여러개인 뉴럴 네트워크를 DNN (Deep Neural Network)이라 말하며 이것이 사람들에게 흔히 알려진 Deep Learning이다.</p>
+<br>
+
+<h2 id="Types-of-Machine-Learning"><a href="#Types-of-Machine-Learning" class="headerlink" title="Types of Machine Learning"></a>Types of Machine Learning</h2><p>머신러닝은 구조적으로 크게 3가지 방식이 있다.</p>
+<center>
+<img src="https://i.imgur.com/mZdJLdg.png">
+</center>
+
+<p>Ref: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YXNjaWVuY2VjZW50cmFsLmNvbS9wcm9maWxlcy9ibG9ncy90eXBlcy1vZi1tYWNoaW5lLWxlYXJuaW5nLWFsZ29yaXRobXMtaW4tb25lLXBpY3R1cmU=">https://www.datasciencecentral.com/profiles/blogs/types-of-machine-learning-algorithms-in-one-picture<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Supervised-Learning-지도-학습"><a href="#Supervised-Learning-지도-학습" class="headerlink" title="Supervised Learning (지도 학습)"></a>Supervised Learning (지도 학습)</h3><p>지도 학습은 입력과 정답인 출력 레이블 한 쌍을 가지고 학습시키는 방법이다.</p>
+<p>지도 학습은 다시 Classification과 Regression으로 분류된다.</p>
+<h3 id="Unsupervised-Learning-비지도-학습"><a href="#Unsupervised-Learning-비지도-학습" class="headerlink" title="Unsupervised Learning (비지도 학습)"></a>Unsupervised Learning (비지도 학습)</h3><p>비지도 학습은 입력 레이블만을 가지고 학습시키는 방법이다.</p>
+<p>지도 학습의 경우에는 정답이 존재하기 때문에 학습 결과와 정답과의 오차를 계산할 수 있으나 비지도 학습은 그렇지 않다. 그렇기 때문에 비지도 학습은 입력 데이터들의 Cluster를 찾아 학습한다.</p>
+<h3 id="Reinforcement-Learning-강화-학습"><a href="#Reinforcement-Learning-강화-학습" class="headerlink" title="Reinforcement Learning (강화 학습)"></a>Reinforcement Learning (강화 학습)</h3><p>강화 학습은 학습 데이터가 주어지지 않는다. 대신에 학습에 대한 보상(Reward)가 주어지며, 미래에 얻을 보상값들의 평균을 마르코프 의사 결정 과정을 통해 최대로 하는 함수를 찾는 것을 강화 학습이라 한다.</p>
+<br>
+
+<h2 id="Binary-Classification"><a href="#Binary-Classification" class="headerlink" title="Binary Classification"></a>Binary Classification</h2><p>Classification과 Regression의 가장 큰 차이점은 Classification은 좌표상에서 Discrete하게 표현된다는 것이며, Regression은 Continuous하게 표현된다는 것이다.</p>
+<p>즉, Classification은 Cluster를 나누는 기준 선을 찾는 방법이며, Regression은 데이터들이 수렴하게 되는 선을 찾는 것이다.</p>
+<p>Classification 중에서 Binary Classification은 정답이 0 혹은 1 두가지로만 구분하는 방법이다. 예를 들어, 64x64의 고양이 사진이 있을 때, 이것이 고양이인지 아닌지만 판별하게 된다.</p>
+<p>이를 판별하기 위해서는 64x64인 행렬이 RGB 3채널로 이루어진 사진을 하나의 열벡터로 재배열해야 한다. 이때, 열벡터의 행의 개수는 $64\times64\times3=12288$개가 된다. (이를 $n_x$라 표현) 이 열벡터는 정답레이블에 맞게 변환하는 과정이 필요하다.</p>
+<p>선형대수에 따르면 일반적으로 벡터의 변환은 Linear Combination ($v=\alpha_1v_1+\alpha_2v_2+…+\alpha_nv_n$)이며, 벡터에 가중치를 곱한 것들의 합이다. 벡터의 곱은 행렬의 곱으로 표현이 가능하며, 수식은 아래와 같다.</p>
+<p>$$z = w^Tx + b$$</p>
+<p>그러나 계산되어 나온 $z$는 $0$이나 $1$이 아니다. 그렇기 때문에 Logistic Regression (여기서는 Sigmoid Function)을 사용하여 $0$과 $1$에 근접하게 맵핑하여야 한다. 시그모이드 함수의 범위는 $0&lt;\sigma(z)&lt;1$의 연속된 실수이며, 이것은 확률을 의미한다.</p>
+<center>
+<img src="https://cdn-images-1.medium.com/max/800/1*Xu7B5y9gp0iL5ooBj7LtWw.png">
+</center>
+
+<p>Ref: <span class="exturl" data-url="aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2FjdGl2YXRpb24tZnVuY3Rpb25zLW5ldXJhbC1uZXR3b3Jrcy0xY2JkOWY4ZDkxZDY=">https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6<i class="fa fa-external-link-alt"></i></span></p>
+<p>$\hat{y}=\sigma(z)$이라 하면 $\hat{y}$는 $y$가 $1$인 경우에 대한 확률이며 ($\hat{y}=P(y=1 \mid x)$), 결론적으로 기계는 $\hat{y}$가 $1$에 근접할 수록 고양이라고 판단하는 것이다.</p>
+<h2 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a>Back Propagation</h2><p>앞의 과정까지가 Forward Propagation으로 진행되는 방식이다. 그러나 기계가 도출한 답과 실제 정답레이블과의 오차가 클 경우가 많다. 그렇기 때문에 우리는 Forward하게 도출한 답을 토대로 다시 가중치를 수정하면서 오차율을 줄여야 할 필요가 있다.</p>
+<p>이를 역전파(Back Propagation)라 한다.</p>
+<h3 id="Logistic-Regression-Cost-Function"><a href="#Logistic-Regression-Cost-Function" class="headerlink" title="Logistic Regression Cost Function"></a>Logistic Regression Cost Function</h3><p>역전파를 하기 위해 도출된 답과 실제의 답에 대한 오차율을 구해야 한다. 하나에 학습에 대한 오차율 계산 함수를 Loss Function이라 한다. Loss function을 구하는 과정은 다음과 같다.<br><br></p>
+<p>$$<br>\begin{aligned}<br>&amp;if \cr<br>&amp;&amp;&amp;y = 1: P(y \mid x)=\hat{y} \cr<br>&amp;else \cr<br>&amp;&amp;&amp;y = 0: P(y \mid x)=1 - \hat{y}<br>\end{aligned}<br>$$</p>
+<br>
+
+<p>즉, $P(y \mid x)=\hat{y}^y(1 - \hat{y})^{(1 - y)}$가 성립하며, 이에 $\log$를 씌우면,</p>
+<br>
+
+<p>$$<br>\log P(y \mid x) = \log\hat{y}^y(1 - \hat{y})^{(1 - y)}<br>$$<br>$$<br>-\mathcal{L}(\hat{y}, y) = y\log\hat{y} + (1 - y)\log(1 - \hat{y})<br>$$</p>
+<p>이 성립한다.</p>
+<p>Cost Function은 각 학습 셋에 대한 Loss Function들의 평균이다. 우리는 Cost Function을 구한 후 역전파 과정을 거쳐야 한다.</p>
+<p>$$ J(w, b) = -\frac{1}{m}\sum_{i = 1}^m (y_{(i)} \log\hat{y_{(i)}} + (1 - y_{(i)}) \log(1 - \hat{y_{(i)}}))$$</p>
+<h3 id="Gradient-Descent-Algorithm"><a href="#Gradient-Descent-Algorithm" class="headerlink" title="Gradient Descent Algorithm"></a>Gradient Descent Algorithm</h3><p>Gradient Descent는 Cost Function을 최소화하기 위한 가중치를 찾는 알고리즘이다. 이 공식에는 편미분을 이용한다.</p>
+<p>미분은 입력에 약간의 변화가 있을 때, 출력이 얼마만큼 변화하는지 확인하기 위함이다.<br>즉, $f(x)=2x$에 대해서 $x_1=1$일 때, $f(x_1)=2$이며, $x_2=1.001$일 때, $f(x_2)=2.002$이다.</p>
+<p>이 경우 $f(x)$의 도함수 $f^\prime(x)$는 $\frac{0.002}{0.001}$이므로 $2$가된다.<br>편미분은 미분의 일종으로 입력 파라미터가 하나가 아닌 여러개일 때, 한 파라미터가 약간 변했을 때 출력이 얼마만큼 변화하는 지를 나타내는 것이다.</p>
+<p>위에서는 $J(w,b)$를 $w$에서 편미분하는 것을 $\frac{\partial J(w,b)}{\partial w}$로 표현하며, 마찬가지로 $b$에 대해 편미분하면 $\frac{\partial J(w,b)}{\partial b}$로 표현한다.</p>
+<p>Gradient Descent는 볼록한(convex) 함수가 있을 때 이 함수의 가장 아래 부분으로 점차 결과물을 내리는 방식이다. 오차율 함수 $J(w,b)$는 하단으로 갈수록 오차율이 적어지는 것을 의미한다.</p>
+<p>$$<br>\begin{aligned}<br>w:=w-\alpha\frac{\partial J(w,b)}{\partial w} \<br>b:=b-\alpha\frac{\partial J(w,b)}{\partial b} \<br>\end{aligned}<br>$$</p>
+<p>위 Gradient Decsent를 각 $w,b$에 적용하여 가장 낮은 오차율이 나오도록 $w$와 $b$를 수정하는 작업이다. ($\alpha$는 learning rate을 의미)</p>
+<p>추가적으로 Linear Regression에서의 Cost Function은 Euclidean Distance를 응용한 Mean Squared Error</p>
+<p>$$J(w,b)=\frac{1}{m}\sum_{i=1}^m\frac{1}{2}(\hat{y}-y)^2$$</p>
+<p>를 사용하지만, Logisitc Regression에서 MSE를 사용하면 Convex하지 않은 함수가 나온다. 그렇기 때문에 위와 같은 방법을 사용하는데 이를 Cross Entropy Error라고 한다.</p>
+<p>Back Propagation 수행 시에는 Gradient Descent를 위한 편미분을 계산하게 되는데 위의 Binary Classification 예제는 단층 레이어 구조의 뉴럴 네트워크를 사용하기 때문에 편미분 유도가 용이하다.</p>
+<p>그러나 Deep Learning은 Multi Layer 구조이므로 편미분을 구할 때 다소 복잡하다. 그렇기 때문에 각 층의 출력에 대해 한 단계씩 뒤로 가면서 각각의 편미분을 구하는 일을 반복하게 된다. 이를 Chain Rule이라 한다.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Jim
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://jimheo.github.io/2018/10/10/ml-study-week1/" title="Machine Learning study 1주차">https://jimheo.github.io/2018/10/10/ml-study-week1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+              <a href="/tags/Logistic-Regression/" rel="tag"># Logistic Regression</a>
+              <a href="/tags/Gradient-Descent/" rel="tag"># Gradient Descent</a>
+              <a href="/tags/Classification/" rel="tag"># Classification</a>
+          </div>
+
+        
+
+<br>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jiminthebox.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/10/extra-consideration-of-chain-rule/" rel="next" title="Chain Rule에 대한 추가적인 고찰">
+      Chain Rule에 대한 추가적인 고찰 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#머신러닝이란-무엇인가"><span class="nav-number">1.1.</span> <span class="nav-text">머신러닝이란 무엇인가?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#House-Price-Prediction"><span class="nav-number">1.2.</span> <span class="nav-text">House Price Prediction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-Machine-Learning"><span class="nav-number">2.</span> <span class="nav-text">Types of Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Supervised-Learning-지도-학습"><span class="nav-number">2.1.</span> <span class="nav-text">Supervised Learning (지도 학습)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unsupervised-Learning-비지도-학습"><span class="nav-number">2.2.</span> <span class="nav-text">Unsupervised Learning (비지도 학습)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reinforcement-Learning-강화-학습"><span class="nav-number">2.3.</span> <span class="nav-text">Reinforcement Learning (강화 학습)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Classification"><span class="nav-number">3.</span> <span class="nav-text">Binary Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-Propagation"><span class="nav-number">4.</span> <span class="nav-text">Back Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression-Cost-Function"><span class="nav-number">4.1.</span> <span class="nav-text">Logistic Regression Cost Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">4.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jim" src="/images/jim_zepeto.jpeg">
+  <p class="site-author-name" itemprop="name">Jim</p>
+  <div class="site-description" itemprop="description">Machine Learning Engineer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmdqd2xhbHMxMTFAZ21haWwuY29t" title="EMail → mailto:gjwlals111@gmail.com"><i class="fa fa-paper-plane fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9KaW0tODE2YmNiYjQxZTg5NGEzZWE3YjAzZDA2NzliMDQwZDIv" title="Resume → https:&#x2F;&#x2F;jiminthebox.notion.site&#x2F;Jim-816bcbb41e894a3ea7b03d0679b040d2&#x2F;"><i class="fa fa-portrait fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ppbUhlbw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JimHeo"><i class="fab fa-github-alt fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ppbWludGhlYm94MDIxOA==" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;jiminthebox0218"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="night-mode motion-element">
+  <a role="button" class="night-btn">
+    <i class="fa fa-adjust"></i>
+    Dark Mode
+  </a>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-code"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JimintheBox</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">36k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">33 mins.</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jimheo.github.io/2018/10/10/ml-study-week1/";
+    this.page.identifier = "2018/10/10/ml-study-week1/";
+    this.page.title = "Machine Learning study 1주차";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jiminthebox.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+// <script>
+//   ((w, d) => {
+//     'use strict';
+//
+//       let userScheme = localStorage.getItem('Scheme');
+//       if (userScheme) d.documentElement.className += ' darkScheme';
+//       const btn = d.querySelector('.night-btn');
+//       w.addEventListener('keydown', e => {
+//         if (e.altKey && e.code === 'KeyX') btn.click();
+//       });
+//       btn.addEventListener('click', () => {
+//         d.documentElement.classList.toggle('darkScheme');
+//         if ( d.documentElement.classList.contains('darkScheme') ) {
+//           localStorage.setItem('Scheme', 'Dark');
+//           return;
+//         }
+//         localStorage.removeItem('Scheme');
+//       });
+//
+//
+//   })(window, document);
+// </script>
+
+    </div>
+
+  <script>
+  ((w, d) => {
+    'use strict';
+      let userScheme = localStorage.getItem('Scheme');
+      if (userScheme) d.documentElement.className += ' darkScheme';
+      const btn = d.querySelector('.night-mode');
+
+      btn.addEventListener('click', () => {
+        d.documentElement.classList.toggle('darkScheme');
+
+        var disqus_config = function() {
+          this.page.url = "https://jimheo.github.io/2018/10/10/ml-study-week1/";
+          this.page.identifier = "2018/10/10/ml-study-week1/";
+          this.page.title = "Machine Learning study 1주차";
+          };
+        w.DISQUS.reset({
+          reload: true,
+          config: disqus_config
+        });
+
+        if ( d.documentElement.classList.contains('darkScheme') ) {
+          localStorage.setItem('Scheme', 'Dark');
+          return;
+        }
+        localStorage.removeItem('Scheme');
+      });
+  })(window, document);
+</script>
+
+
+
+  <script id="dsq-count-scr" src="//jiminthebox.disqus.com/count.js" async></script>
+</body>
+</html>

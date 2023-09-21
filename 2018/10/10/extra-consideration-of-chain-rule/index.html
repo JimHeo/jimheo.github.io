@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#047862">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="naver-site-verification" content="2bd14d67b3d73295d005329855a538d74254ba06">
+<script data-ad-client="ca-pub-3114905834142601" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/piedpiper.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pied.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pied.ico">
+  <link rel="mask-icon" href="/images/piedpiper.svg" color="#047862">
+  <meta name="google-site-verification" content="oQ7HTi1xryHDWx06lTeI5yjUSngiM82UnDecuMqCbzQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum Gothic:300,300italic,400,400italic,700,700italic|Black Han Sans:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Chain RuleDeep Neural Network에서는 Feed Forward를 하여 나온 값과 기존의 정답 레이블 사이의 에러율을 줄이기 위한 가장 기본적인 방법으로 Gradient Descent 알고리즘을 사용한다. Gradient Descent 알고리즘은 이를 위해서 Back Propagation을 하면서 최적의 가중치를 구하도록 한다. 최적의 가">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chain Rule에 대한 추가적인 고찰">
+<meta property="og:url" content="https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/index.html">
+<meta property="og:site_name" content="JimintheBox">
+<meta property="og:description" content="Chain RuleDeep Neural Network에서는 Feed Forward를 하여 나온 값과 기존의 정답 레이블 사이의 에러율을 줄이기 위한 가장 기본적인 방법으로 Gradient Descent 알고리즘을 사용한다. Gradient Descent 알고리즘은 이를 위해서 Back Propagation을 하면서 최적의 가중치를 구하도록 한다. 최적의 가">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-10T08:54:42.000Z">
+<meta property="article:modified_time" content="2023-09-21T12:34:47.491Z">
+<meta property="article:author" content="Jim">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Computational Graph">
+<meta property="article:tag" content="Chain Rule">
+<meta property="article:tag" content="Derivative">
+<meta property="article:tag" content="Backpropagation">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<script>
+  ((w, d) => {
+    'use strict';
+      const userScheme = localStorage.getItem('Scheme');
+      if (!userScheme) return;
+    d.documentElement.className += ' darkScheme';
+  })(window, document);
+</script>
+
+  <title>Chain Rule에 대한 추가적인 고찰 | JimintheBox</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127400890-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-127400890-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '351974730089565');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=351974730089565&ev=PageView&noscript=1"></noscript>
+  <!-- End Facebook Pixel Code -->
+<link rel="alternate" href="/atom.xml" title="JimintheBox" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="JimintheBox" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <a>
+        <img class="custom-logo-image" src="/images/lubycon-logo-ha-brand-theme.svg" alt="JimintheBox" onclick="toggleImg()">
+      </a>
+      <script>
+        function toggleImg() {
+          const src = document.getElementsByClassName("custom-logo-image")[0].src;
+          if(src.includes("lubycon-logo-ha-brand-theme.svg")){
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-light.svg";
+          }
+          else{
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-brand-theme.svg";
+          }
+        }
+      </script>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JimintheBox</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fas fa-database fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fas fa-terminal fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fab fa-slack-hash fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fas fa-dna fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Chain Rule에 대한 추가적인 고찰
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-10 17:54:42" itemprop="dateCreated datePublished" datetime="2018-10-10T17:54:42+09:00">2018-10-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">머신러닝</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">딥러닝</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Chain-Rule"><a href="#Chain-Rule" class="headerlink" title="Chain Rule"></a>Chain Rule</h2><p><code>Deep Neural Network</code>에서는 Feed Forward를 하여 나온 값과 기존의 정답 레이블 사이의 에러율을 줄이기 위한 가장 기본적인 방법으로 Gradient Descent 알고리즘을 사용한다.</p>
+<p><code>Gradient Descent</code> 알고리즘은 이를 위해서 Back Propagation을 하면서 최적의 가중치를 구하도록 한다. 최적의 가중치는 기존의 가중치가 에러율에 미치는 영향을 구한 후 이 영향을 점차 감소시켜서 구할 수 있다.</p>
+<p>즉, 이 과정에서 <code>편미분</code>이 사용되는 것이다. 편미분은 여러개의 파라미터가 있을 때, 하나의 파라미터가 약간 변화하면 Output이 얼마나 크게 변화하는지 확인할 수 있는 도구이다.</p>
+<p>그러나, 딥러닝은 Multi-Layer로 구성되어 있다. 수많은 다중 함수들의 집합이라고 봐도 무방하다. 다시 말해, 가장 처음의 입력에 대한 가중치를 업데이트 해야 하는데 이 가중치의 편미분값을 구하기가 어렵다는 것이다.</p>
+<p>이때 도입되는 개념이 <code>Chain Rule</code>이다. 정확히는 도입이 되었다기 보다는 수학적인 측면에서 보았을 때, 편미분에 당연하게 사용되는 것이다.</p>
+<h3 id="초심자의-입장"><a href="#초심자의-입장" class="headerlink" title="초심자의 입장"></a>초심자의 입장</h3><p>딥러닝을 처음 접하는 혹은 수학에 대하여 큰 지식이 있지 않은 사람의 입장에서 Chain Rule은 그리 간단하지는 않다. 개념에 대해 이해를 하고 난 후라도 Multi-Layer에 대해 직접 Chain Rule을 적용한다면 굉장히 헷갈리기 시작한다.</p>
+<p>그래서 가장 단순하게 이해를 하기 위해서 Sigmoid 함수 하나만을 가지고 Chain Rule을 적용해보기로 한다.</p>
+<p>$$\sigma(z) = \frac{1}{1 + e^{-z}}$$</p>
+<p>위 수식이 Sigmoid 함수다. 미분 공식을 어느정도 안다고 하더라도 위 식을 미분한 결과를 내는 것은 쉽지 않을 것이다. 그렇다면 위의 식을 잘게 쪼개보자.</p>
+<a id="more"></a>
+
+<p>$$<br>\begin{cases}<br>f(z) = -z \cr<br>g(f) = e^f \cr<br>h(g) = 1 + g \cr<br>i(h) = \frac{1}{h}<br>\end{cases}<br>$$</p>
+<p>위 4개의 수식으로 잘게 나눈다면,</p>
+<p>$$\sigma(z) = i(h(g(f(z))))$$</p>
+<p>가 성립된다.</p>
+<p>여기서 $\sigma(z)$을 미분한다는 것은 $z$의 변화량을 확인하는 것이다.</p>
+<p>우변의 측면에서 이를 다시보면 다음과 같이 표현이 가능하다.</p>
+<p>$$<br>\frac{\partial \sigma}{\partial z} = \frac{\partial i}{\partial z} = \frac{\partial i}{\bcancel{\partial h}} * \frac{\bcancel{\partial h}}{\bcancel{\partial g}} * \frac{\bcancel{\partial g}}{\bcancel{\partial f}} * \frac{\bcancel{\partial f}}{\partial z}<br>$$</p>
+<p>즉, $\frac{\partial i}{\partial h} * \frac{\partial h}{\partial g} * \frac{\partial g}{\partial f} * \frac{\partial f}{\partial z} = f^\prime(z) * g^\prime(f) * h^\prime(g) * i^\prime(h)$ 이므로, 4개의 함수에 대한 미분을 각각 한 후에 서로 곱해주기만 하면, Sigmoid 함수의 미분함수가 나온다.</p>
+<p>4개의 함수를 미분하면 아래와 같다.</p>
+<p>$$<br>\begin{cases}<br>f^\prime(z)=-1 \cr<br>g^\prime(f)=e^f \cr<br>h^\prime(g)=1 \cr<br>i^\prime(h)=-\frac{1}{h^2}<br>\end{cases}<br>$$</p>
+<p>이제 이들을 곱해준다.</p>
+<p>$$<br>\begin{matrix}<br>f^\prime(z)g^\prime(f)h^\prime(g)i^\prime(h) &amp;=&amp; (-1) * e^f * 1 * (-\frac{1}{h^2}) \cr<br>&amp;=&amp; \frac{e^f}{h^2} \cr<br>&amp;=&amp; \frac{e^{-z}}{(1+e^{-z})^2} \cr<br>&amp;=&amp; \sigma(z) * (1-\sigma(z))<br>\end{matrix}<br>$$</p>
+<p>최종적으로 Sigmoid 함수를 Chain Rule을 이용한 값은 위와 같은 결과가 나오는데 이는 일반적으로 알려진 Sigmoid 함수의 미분 값과 동일하다.</p>
+<p>이처럼 복잡한 다중함수의 미분은 Chain Rule을 이용하면 가장 단순하게 풀이가 가능하다. Back Propagation의 과정 또한 Chain Rule을 적용할 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Jim
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/" title="Chain Rule에 대한 추가적인 고찰">https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+              <a href="/tags/Computational-Graph/" rel="tag"># Computational Graph</a>
+              <a href="/tags/Chain-Rule/" rel="tag"># Chain Rule</a>
+              <a href="/tags/Derivative/" rel="tag"># Derivative</a>
+              <a href="/tags/Backpropagation/" rel="tag"># Backpropagation</a>
+          </div>
+
+        
+
+<br>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jiminthebox.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/10/ml-study-week1/" rel="prev" title="Machine Learning study 1주차">
+      <i class="fa fa-chevron-left"></i> Machine Learning study 1주차
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/10/concept-of-cnn/" rel="next" title="Convolutional Neural Network의 개념">
+      Convolutional Neural Network의 개념 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chain-Rule"><span class="nav-number">1.</span> <span class="nav-text">Chain Rule</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#초심자의-입장"><span class="nav-number">1.1.</span> <span class="nav-text">초심자의 입장</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jim" src="/images/jim_zepeto.jpeg">
+  <p class="site-author-name" itemprop="name">Jim</p>
+  <div class="site-description" itemprop="description">Machine Learning Engineer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmdqd2xhbHMxMTFAZ21haWwuY29t" title="EMail → mailto:gjwlals111@gmail.com"><i class="fa fa-paper-plane fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9KaW0tODE2YmNiYjQxZTg5NGEzZWE3YjAzZDA2NzliMDQwZDIv" title="Resume → https:&#x2F;&#x2F;jiminthebox.notion.site&#x2F;Jim-816bcbb41e894a3ea7b03d0679b040d2&#x2F;"><i class="fa fa-portrait fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ppbUhlbw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JimHeo"><i class="fab fa-github-alt fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ppbWludGhlYm94MDIxOA==" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;jiminthebox0218"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="night-mode motion-element">
+  <a role="button" class="night-btn">
+    <i class="fa fa-adjust"></i>
+    Dark Mode
+  </a>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-code"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JimintheBox</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">36k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">33 mins.</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/";
+    this.page.identifier = "2018/10/10/extra-consideration-of-chain-rule/";
+    this.page.title = "Chain Rule에 대한 추가적인 고찰";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jiminthebox.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+// <script>
+//   ((w, d) => {
+//     'use strict';
+//
+//       let userScheme = localStorage.getItem('Scheme');
+//       if (userScheme) d.documentElement.className += ' darkScheme';
+//       const btn = d.querySelector('.night-btn');
+//       w.addEventListener('keydown', e => {
+//         if (e.altKey && e.code === 'KeyX') btn.click();
+//       });
+//       btn.addEventListener('click', () => {
+//         d.documentElement.classList.toggle('darkScheme');
+//         if ( d.documentElement.classList.contains('darkScheme') ) {
+//           localStorage.setItem('Scheme', 'Dark');
+//           return;
+//         }
+//         localStorage.removeItem('Scheme');
+//       });
+//
+//
+//   })(window, document);
+// </script>
+
+    </div>
+
+  <script>
+  ((w, d) => {
+    'use strict';
+      let userScheme = localStorage.getItem('Scheme');
+      if (userScheme) d.documentElement.className += ' darkScheme';
+      const btn = d.querySelector('.night-mode');
+
+      btn.addEventListener('click', () => {
+        d.documentElement.classList.toggle('darkScheme');
+
+        var disqus_config = function() {
+          this.page.url = "https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/";
+          this.page.identifier = "2018/10/10/extra-consideration-of-chain-rule/";
+          this.page.title = "Chain Rule에 대한 추가적인 고찰";
+          };
+        w.DISQUS.reset({
+          reload: true,
+          config: disqus_config
+        });
+
+        if ( d.documentElement.classList.contains('darkScheme') ) {
+          localStorage.setItem('Scheme', 'Dark');
+          return;
+        }
+        localStorage.removeItem('Scheme');
+      });
+  })(window, document);
+</script>
+
+
+
+  <script id="dsq-count-scr" src="//jiminthebox.disqus.com/count.js" async></script>
+</body>
+</html>

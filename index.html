@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#047862">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="naver-site-verification" content="2bd14d67b3d73295d005329855a538d74254ba06">
+<script data-ad-client="ca-pub-3114905834142601" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/piedpiper.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pied.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pied.ico">
+  <link rel="mask-icon" href="/images/piedpiper.svg" color="#047862">
+  <meta name="google-site-verification" content="oQ7HTi1xryHDWx06lTeI5yjUSngiM82UnDecuMqCbzQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum Gothic:300,300italic,400,400italic,700,700italic|Black Han Sans:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Machine Learning Engineer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JimintheBox">
+<meta property="og:url" content="https://jimheo.github.io/index.html">
+<meta property="og:site_name" content="JimintheBox">
+<meta property="og:description" content="Machine Learning Engineer">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Jim">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jimheo.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+<script>
+  ((w, d) => {
+    'use strict';
+      const userScheme = localStorage.getItem('Scheme');
+      if (!userScheme) return;
+    d.documentElement.className += ' darkScheme';
+  })(window, document);
+</script>
+
+  <title>JimintheBox</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127400890-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-127400890-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '351974730089565');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=351974730089565&ev=PageView&noscript=1"></noscript>
+  <!-- End Facebook Pixel Code -->
+<link rel="alternate" href="/atom.xml" title="JimintheBox" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="JimintheBox" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <a>
+        <img class="custom-logo-image" src="/images/lubycon-logo-ha-brand-theme.svg" alt="JimintheBox" onclick="toggleImg()">
+      </a>
+      <script>
+        function toggleImg() {
+          const src = document.getElementsByClassName("custom-logo-image")[0].src;
+          if(src.includes("lubycon-logo-ha-brand-theme.svg")){
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-light.svg";
+          }
+          else{
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-brand-theme.svg";
+          }
+        }
+      </script>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JimintheBox</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fas fa-database fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fas fa-terminal fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fab fa-slack-hash fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fas fa-dna fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/27/deep-learning-from-scratch/" class="post-title-link" itemprop="url">딥러닝, 처음 접하는 사람들을 위한 기초</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-27 16:33:59" itemprop="dateCreated datePublished" datetime="2021-07-27T16:33:59+09:00">2021-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">머신러닝</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">딥러닝</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>올해 상반기, 나의 최대 관심사는 무엇보다도 <strong><code>졸업(!!!)</code></strong>이었다. 많은 대학원생들이 으레 그렇듯 예상치 못한 사정으로 졸업이 예정보다 반년 늦어졌고 그마저도 더 늦어지겠다 싶어 모든 우선 순위를 제쳐두고 학위 논문을 준비하게 되었다.</p>
+<p>그렇게 1월 말부터 논문을 구상하고 작성하며 시간이 흘렀고, 실험 과정에서 굉장히 많은 시행 착오도 겪었다. 두 번의 발표와 도장을 받기위해 교수님들께 메일을 보내고 돌아다니며 모든 서류 제출을 끝내고 나니 6월이 되어있었다. 그렇게 학위 논문을 모두 제출하고 대학원과 관련된 모든 것을 털어내고서야 드디어 <strong>석사(진)</strong>이 되었다.</p>
+<p>그래도 8월까지는 학생이니만큼 학생 신분의 마지막이 지나기 전에 자축의 의미로 본 포스팅을 작성하기로 하였다. 사실, 2년 반 동안의 지난했던 기간의 회고를 할까도 생각했지만 너무 할 말<del>(못 할 말)</del>이 많아지기 때문에 다소 식상하지만 학위 논문을 작성하면서 정리했던 인공지능의 발전사와 개략적인 개념을 최대한 많은 사람들이 이해할 수 있도록 포스팅에 설명해보기로 했다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/27/deep-learning-from-scratch/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2021/07/06/global-interpreter-lock/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/06/global-interpreter-lock/" class="post-title-link" itemprop="url">Python GIL(Global Interpreter Lock)이 뭐에요?</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-06 13:57:09" itemprop="dateCreated datePublished" datetime="2021-07-06T13:57:09+09:00">2021-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">프로그래밍</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%BD%94%EC%96%B4/" itemprop="url" rel="index"><span itemprop="name">코어</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>7.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>딥러닝을 입문하며 자연스럽게 파이썬을 함께 공부하게 되었고, 지금은 주 언어로 사용하고 있다. 하지만 나는 파이썬에 대해 얼마나 알고 있을까?</p>
+<p>C/C++ 같은 컴파일 언어만 사용했던 나에게 파이썬은 꽤 난해하게 다가왔다. 사실, 파이썬을 사용하면서 느낀 생각은 “파이썬의 철학(The Zen of Python)과 많이 다른데..?” 였다.</p>
+<p>파이썬 철학의 핵심 내용은 <code>명확한 그리고 가급적이면 유일한 하나의 방법이 존재한다(There should be one-- and preferably only one --obvious way to do it)</code>이며, 이에 따르면 규칙이 굉장히 엄격한 언어라고 한다. 그렇지만 나에게 파이썬의 처음에는 굉장히 자유로운 언어로 보였다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/06/global-interpreter-lock/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2020/07/14/retrospective-to-overcome-the-burnout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/14/retrospective-to-overcome-the-burnout/" class="post-title-link" itemprop="url">번아웃 극복을 위한 복기</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 16:18:39" itemprop="dateCreated datePublished" datetime="2020-07-14T16:18:39+09:00">2020-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%97%90%EC%84%B8%EC%9D%B4/" itemprop="url" rel="index"><span itemprop="name">에세이</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>바둑에 대해서 잘은 모르지만 그로부터 유래된 단어는 간혹 일상에서 사용하곤 한다.<br>바둑 용어 중에 <code>복기</code>라는 말이 있다.<br>대국이 끝나고 승패가 결정되었음에도 내용을 검토하기 위해 상호 간 처음부터 두었던 순서대로 다시 두어 재연함 뜻하는 단어다.<br>복기로부터 바둑 기사들은 대국에서 잘한 수와 잘못했던 수, 상대방의 전략 등을 살펴본다.<br>프로 9단 바둑기사 이창호는 다음과 같이 말할 정도로 복기를 중요시 했다고 한다.</p>
+<blockquote>
+<p><strong><em>승리한 대국의 복기는 이기는 습관을 만들어주고, 패배한 대국의 복기는 이기는 준비를 만들어준다</em></strong></p>
+</blockquote>
+<p>조훈현 9단 또한 복기가 가지않았던 길을 갈 수 있게 한다 하였으며, 패배로 인해 아플수록 더 예민하게 들여다보고 복기해야한다는 말을 했더랬다.<br>이 바둑기사들이 많은 수를 순서대로 기억하여 복기를 할 수 있는 이유는 한 수 한 수에 집중하고 의미를 부여하여 두었기 때문이라고 한다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/14/retrospective-to-overcome-the-burnout/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2019/03/12/segmentation-neuralnet-listup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/12/segmentation-neuralnet-listup/" class="post-title-link" itemprop="url">Segmentation Neural Network List Up</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-12 20:52:45" itemprop="dateCreated datePublished" datetime="2019-03-12T20:52:45+09:00">2019-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">머신러닝</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">딥러닝</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>7.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><strong><em>Migration to <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9NZXRhLVNoZWV0LTA0ODJlM2U1MGExNDQ3MTBiMjUzMzE2ODlkMTg3ZTE2Lw==">Meta Sheet<i class="fa fa-external-link-alt"></i></span></em></strong></p>
+</blockquote>
+<hr>
+<h2 id="U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation"><a href="#U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation" class="headerlink" title="U-Net: Convolutional Networks for Biomedical Image Segmentation"></a>U-Net: Convolutional Networks for Biomedical Image Segmentation</h2><p>MICCAI 2015</p>
+<hr>
+<h3 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h3><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzE1MDUuMDQ1OTcucGRm">https://arxiv.org/pdf/1505.04597.pdf<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h3 id="Source-Code-Repository"><a href="#Source-Code-Repository" class="headerlink" title="Source Code Repository"></a>Source Code Repository</h3><ul>
+<li>Official Model: <span class="exturl" data-url="aHR0cHM6Ly9sbWIuaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUvcmVzb3VyY2VzL29wZW5zb3VyY2UvdW5ldC8=">https://lmb.informatik.uni-freiburg.de/resources/opensource/unet/<i class="fa fa-external-link-alt"></i></span><ul>
+<li>Framework: Caffe</li>
+</ul>
+</li>
+<li>Reproduce Model: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2pha2VyZXQvdGZfdW5ldA==">https://github.com/jakeret/tf_unet<i class="fa fa-external-link-alt"></i></span><ul>
+<li>Framework: Tensorflow</li>
+<li>Paper: <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzE2MDkuMDkwNzcucGRm">https://arxiv.org/pdf/1609.09077.pdf<i class="fa fa-external-link-alt"></i></span> in Astronomy and Computing 2017</li>
+<li>Documentation: <span class="exturl" data-url="aHR0cHM6Ly90Zi11bmV0LnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC9pbnN0YWxsYXRpb24uaHRtbA==">https://tf-unet.readthedocs.io/en/latest/installation.html<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li>Reproduce Model: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaXh1aGFvL3VuZXQ=">https://github.com/zhixuhao/unet<i class="fa fa-external-link-alt"></i></span><ul>
+<li>Framework: Keras</li>
+</ul>
+</li>
+<li>Reproduce Model: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21pbGVzaWFsL1B5dG9yY2gtVU5ldA==">https://github.com/milesial/Pytorch-UNet<i class="fa fa-external-link-alt"></i></span><ul>
+<li>Framework: PyTorch</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/12/segmentation-neuralnet-listup/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2018/10/12/about-heap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/12/about-heap/" class="post-title-link" itemprop="url">자료구조, 힙(Heap)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-12 17:10:13" itemprop="dateCreated datePublished" datetime="2018-10-12T17:10:13+09:00">2018-10-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" itemprop="url" rel="index"><span itemprop="name">프로그래밍</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/" itemprop="url" rel="index"><span itemprop="name">자료구조</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h2><p>Tree에 대한 기본적인 설명은 루비콘 팀 Martin Kim의 포스트를 참조한다. <span class="github-emoji" alias="bow" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8">&#x1f647;</span></p>
+<p><strong>Ref: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm1hcnRpbndvcmsuY28ua3IvdGhlb3J5LzIwMTgvMDkvMjIvd2hhdC1pcy10cmVlLmh0bWw=">https://blog.martinwork.co.kr/theory/2018/09/22/what-is-tree.html<i class="fa fa-external-link-alt"></i></span></strong></p>
+<p>추가적으로 Tree에 대해 부가설명을 덧붙인다.<br>Tree의 정의는 다음 2가지를 따른다.</p>
+<br>
+
+<blockquote>
+<p><strong>1. A root node</strong><br><strong>2. The remaining nodes are partitioned into $n(n \geq 0)$ disjoint sets $T_1, T_2, … , T_n$ ($T_i$ : subtrees of the root)</strong></p>
+</blockquote>
+<br>
+
+<p>즉, 루트 노드가 존재하며, 0개 이상의 서브트리로 분리된 노드가 존재해야 한다.<br>이 중 Full Binary Tree는 Depth가 $k$일 때, 총 노드의 개수는 $2^k - 1$개인 트리이며,<br>Complete Binary Tree는 Depth가 $k$인 Full Binary Tree를 왼쪽에서부터 순차적으로 읽었을 때, $k-level$에서 Complete Binary Tree의 총 노드 수 $n$의 인덱스를 가진 노드가 존재하는 것을 말한다.</p>
+<p>이 때, $k =\lceil\log_{2}(n + 1)\rceil$이 성립한다.<br>Complete Binary Tree는 마지막 레벨을 제외하고 모든 레벨이 채워져 있으며, 마지막 레벨의 모든 노드는 가능한 한 가장 왼쪽에 있기 때문에 공간의 낭비가 없어 배열로 구현하는 것이 효율적이다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/12/about-heap/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jim" src="/images/jim_zepeto.jpeg">
+  <p class="site-author-name" itemprop="name">Jim</p>
+  <div class="site-description" itemprop="description">Machine Learning Engineer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmdqd2xhbHMxMTFAZ21haWwuY29t" title="EMail → mailto:gjwlals111@gmail.com"><i class="fa fa-paper-plane fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9KaW0tODE2YmNiYjQxZTg5NGEzZWE3YjAzZDA2NzliMDQwZDIv" title="Resume → https:&#x2F;&#x2F;jiminthebox.notion.site&#x2F;Jim-816bcbb41e894a3ea7b03d0679b040d2&#x2F;"><i class="fa fa-portrait fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ppbUhlbw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JimHeo"><i class="fab fa-github-alt fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ppbWludGhlYm94MDIxOA==" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;jiminthebox0218"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="night-mode motion-element">
+  <a role="button" class="night-btn">
+    <i class="fa fa-adjust"></i>
+    Dark Mode
+  </a>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-code"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JimintheBox</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">36k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">33 mins.</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+// <script>
+//   ((w, d) => {
+//     'use strict';
+//
+//       let userScheme = localStorage.getItem('Scheme');
+//       if (userScheme) d.documentElement.className += ' darkScheme';
+//       const btn = d.querySelector('.night-btn');
+//       w.addEventListener('keydown', e => {
+//         if (e.altKey && e.code === 'KeyX') btn.click();
+//       });
+//       btn.addEventListener('click', () => {
+//         d.documentElement.classList.toggle('darkScheme');
+//         if ( d.documentElement.classList.contains('darkScheme') ) {
+//           localStorage.setItem('Scheme', 'Dark');
+//           return;
+//         }
+//         localStorage.removeItem('Scheme');
+//       });
+//
+//
+//   })(window, document);
+// </script>
+
+    </div>
+
+  <script>
+  ((w, d) => {
+    'use strict';
+      let userScheme = localStorage.getItem('Scheme');
+      if (userScheme) d.documentElement.className += ' darkScheme';
+      const btn = d.querySelector('.night-mode');
+
+      btn.addEventListener('click', () => {
+        d.documentElement.classList.toggle('darkScheme');
+
+        var disqus_config = function() {
+          this.page.url = "";
+          this.page.identifier = "index.html";
+          this.page.title = "";
+          };
+        w.DISQUS.reset({
+          reload: true,
+          config: disqus_config
+        });
+
+        if ( d.documentElement.classList.contains('darkScheme') ) {
+          localStorage.setItem('Scheme', 'Dark');
+          return;
+        }
+        localStorage.removeItem('Scheme');
+      });
+  })(window, document);
+</script>
+
+
+
+  <script id="dsq-count-scr" src="//jiminthebox.disqus.com/count.js" async></script>
+</body>
+</html>

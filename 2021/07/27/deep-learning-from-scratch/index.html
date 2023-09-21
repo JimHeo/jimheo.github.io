@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#047862">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="naver-site-verification" content="2bd14d67b3d73295d005329855a538d74254ba06">
+<script data-ad-client="ca-pub-3114905834142601" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/piedpiper.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-pied.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-pied.ico">
+  <link rel="mask-icon" href="/images/piedpiper.svg" color="#047862">
+  <meta name="google-site-verification" content="oQ7HTi1xryHDWx06lTeI5yjUSngiM82UnDecuMqCbzQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum Gothic:300,300italic,400,400italic,700,700italic|Black Han Sans:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jimheo.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#047862","save":"manual"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="들어가며올해 상반기, 나의 최대 관심사는 무엇보다도 졸업(!!!)이었다. 많은 대학원생들이 으레 그렇듯 예상치 못한 사정으로 졸업이 예정보다 반년 늦어졌고 그마저도 더 늦어지겠다 싶어 모든 우선 순위를 제쳐두고 학위 논문을 준비하게 되었다. 그렇게 1월 말부터 논문을 구상하고 작성하며 시간이 흘렀고, 실험 과정에서 굉장히 많은 시행 착오도 겪었다. 두 번의">
+<meta property="og:type" content="article">
+<meta property="og:title" content="딥러닝, 처음 접하는 사람들을 위한 기초">
+<meta property="og:url" content="https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/index.html">
+<meta property="og:site_name" content="JimintheBox">
+<meta property="og:description" content="들어가며올해 상반기, 나의 최대 관심사는 무엇보다도 졸업(!!!)이었다. 많은 대학원생들이 으레 그렇듯 예상치 못한 사정으로 졸업이 예정보다 반년 늦어졌고 그마저도 더 늦어지겠다 싶어 모든 우선 순위를 제쳐두고 학위 논문을 준비하게 되었다. 그렇게 1월 말부터 논문을 구상하고 작성하며 시간이 흘렀고, 실험 과정에서 굉장히 많은 시행 착오도 겪었다. 두 번의">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jimheo.github.io/images/deep-learning-from-scratch/simpson_graduate_student.jpeg">
+<meta property="og:image" content="https://jimheo.github.io/images/deep-learning-from-scratch/AI_ML_DL.jpg">
+<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20120217_51/ktw108_1329408439677gTcez_JPEG/%B7%CE%C0%FA.jpg?type=w2">
+<meta property="og:image" content="https://i.pinimg.com/736x/e1/63/48/e1634867bf7a35ead5dc0d40b912f471.jpg">
+<meta property="og:image" content="https://i.redd.it/8lfied3ohyp11.jpg">
+<meta property="og:image" content="https://miro.medium.com/max/1000/1*x7P7gqjo8k2_bj2rTQWAfg.jpeg">
+<meta property="og:image" content="https://i.redd.it/5193db0avbey.jpg">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*MkPk6IVlNyCjSmCIE000pg.png">
+<meta property="article:published_time" content="2021-07-27T07:33:59.000Z">
+<meta property="article:modified_time" content="2023-09-21T12:34:47.487Z">
+<meta property="article:author" content="Jim">
+<meta property="article:tag" content="Convolutional Neural Network">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jimheo.github.io/images/deep-learning-from-scratch/simpson_graduate_student.jpeg">
+
+<link rel="canonical" href="https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<script>
+  ((w, d) => {
+    'use strict';
+      const userScheme = localStorage.getItem('Scheme');
+      if (!userScheme) return;
+    d.documentElement.className += ' darkScheme';
+  })(window, document);
+</script>
+
+  <title>딥러닝, 처음 접하는 사람들을 위한 기초 | JimintheBox</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127400890-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-127400890-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '351974730089565');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=351974730089565&ev=PageView&noscript=1"></noscript>
+  <!-- End Facebook Pixel Code -->
+<link rel="alternate" href="/atom.xml" title="JimintheBox" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="JimintheBox" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <a>
+        <img class="custom-logo-image" src="/images/lubycon-logo-ha-brand-theme.svg" alt="JimintheBox" onclick="toggleImg()">
+      </a>
+      <script>
+        function toggleImg() {
+          const src = document.getElementsByClassName("custom-logo-image")[0].src;
+          if(src.includes("lubycon-logo-ha-brand-theme.svg")){
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-light.svg";
+          }
+          else{
+              document.getElementsByClassName("custom-logo-image")[0].src = "/images/lubycon-logo-ha-brand-theme.svg";
+          }
+        }
+      </script>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JimintheBox</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fas fa-database fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fas fa-terminal fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fab fa-slack-hash fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fas fa-dna fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jim_zepeto.jpeg">
+      <meta itemprop="name" content="Jim">
+      <meta itemprop="description" content="Machine Learning Engineer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimintheBox">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          딥러닝, 처음 접하는 사람들을 위한 기초
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-27 16:33:59" itemprop="dateCreated datePublished" datetime="2021-07-27T16:33:59+09:00">2021-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">머신러닝</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index"><span itemprop="name">딥러닝</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>올해 상반기, 나의 최대 관심사는 무엇보다도 <strong><code>졸업(!!!)</code></strong>이었다. 많은 대학원생들이 으레 그렇듯 예상치 못한 사정으로 졸업이 예정보다 반년 늦어졌고 그마저도 더 늦어지겠다 싶어 모든 우선 순위를 제쳐두고 학위 논문을 준비하게 되었다.</p>
+<p>그렇게 1월 말부터 논문을 구상하고 작성하며 시간이 흘렀고, 실험 과정에서 굉장히 많은 시행 착오도 겪었다. 두 번의 발표와 도장을 받기위해 교수님들께 메일을 보내고 돌아다니며 모든 서류 제출을 끝내고 나니 6월이 되어있었다. 그렇게 학위 논문을 모두 제출하고 대학원과 관련된 모든 것을 털어내고서야 드디어 <strong>석사(진)</strong>이 되었다.</p>
+<p>그래도 8월까지는 학생이니만큼 학생 신분의 마지막이 지나기 전에 자축의 의미로 본 포스팅을 작성하기로 하였다. 사실, 2년 반 동안의 지난했던 기간의 회고를 할까도 생각했지만 너무 할 말<del>(못 할 말)</del>이 많아지기 때문에 다소 식상하지만 학위 논문을 작성하면서 정리했던 인공지능의 발전사와 개략적인 개념을 최대한 많은 사람들이 이해할 수 있도록 포스팅에 설명해보기로 했다.</p>
+<a id="more"></a>
+
+<br>
+<center>
+<img src="/images/deep-learning-from-scratch/simpson_graduate_student.jpeg" width="50%">
+<font size="2" color="gray"> 아..아앗...아니야...!!<font>
+</font></font></center>
+<br>
+
+<p>사실, 이 블로그는 루비콘 사람들과 머신러닝 스터디를 진행하며 내용을 정리하기 위한 목적으로 처음 개설했었다. 그래서 이 블로그의 초반에는 지금 할 얘기와 꽤 겹치는 얘기가 많다.<em>(스터디가 오래 이어지지는 않았어서 내용이 많지는 않다.)</em> 아직 많은 포스팅을 하지 않았지만, 당시 글을 썼을 때보다 몇 년의 시간이 지났기 때문에 일종의 리워크로써 본 포스팅을 작성한다.</p>
+<p>지금도 부족하지만 이때의 포스팅은 다시 보기 민망하다. <span class="github-emoji" alias="sweat" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f613.png?v8">&#x1f613;</span></p>
+<ul>
+<li><a href="https://jimheo.github.io/2018/10/10/ml-study-week1/">Machine Learning study 1주차</a></li>
+<li><a href="https://jimheo.github.io/2018/10/10/extra-consideration-of-chain-rule/">Chain Rule에 대한 추가적인 고찰</a></li>
+<li><a href="https://jimheo.github.io/2018/10/10/concept-of-cnn/">Convolutional Neural Network의 개념</a></li>
+</ul>
+<h2 id="인공지능-머신러닝-딥러닝-다-같은-말-아녜요-🤔"><a href="#인공지능-머신러닝-딥러닝-다-같은-말-아녜요-🤔" class="headerlink" title="인공지능? 머신러닝?? 딥러닝??? 다 같은 말 아녜요? 🤔"></a>인공지능? 머신러닝?? 딥러닝??? 다 같은 말 아녜요? 🤔</h2><p><code>인공지능</code>, <code>머신러닝</code>, <code>딥러닝</code>은 IT 및 인공지능 관련 지식이 없는 사람들이 가장 혼동하는 용어다. 대부분 이 세 가지에 대해 동일하게 생각하거나 머신러닝이나 딥러닝이라는 용어를 아직 잘 모르는 사람들이 많다.</p>
+<p>간혹 딥러닝을 스스로 학습한다고 말하는 경우가 있는데, 그런 설명이 이해가 안되는 것은 아니지만 오히려 사람들에게 혼동을 줄 수 있기도 하고 모든 딥러닝을 정의하기에 적절한 워딩은 아니라고 생각한다.(Self-Supervised Learning이나 NAS 같은 AutoML이라면 모를까..)</p>
+<p>아마도 높은 퍼포먼스를 보이는 방법론들이 딥러닝으로 귀결되고 있으니 용어의 혼동이 온다고 생각한다. 이들을 설명하기 위해 가장 흔하게 사용하는 다이어그램을 나도 한 번 그려보았다.</p>
+<br>
+<center>
+<img src="/images/deep-learning-from-scratch/AI_ML_DL.jpg" width="50%">
+<font size="2" color="gray"> 인공지능, 머신러닝 그리고 딥러닝 <font>
+</font></font></center>
+<br>
+
+<p>아무튼 먼저 인공지능은 머신러닝의, 머신러닝은 딥러닝의 슈퍼셋으로 용어들 간에는 포함 개념을 갖고 있으며 동일한 용어가 아님을 짚고 간다. 각각의 개념을 다시 아래와 같이 설명할 수 있을 듯 하다.<em>(학부 시절, 많은 것을 가르쳐주신 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vYy9OZW9XaXphcmQ=">박성호 교수님<i class="fa fa-external-link-alt"></i></span>의 워딩을 레퍼런스한다.)</em></p>
+<blockquote>
+<p><strong>인공지능(AI, Artificial Intelligence)</strong><br>인간의 학습능력, 추론능력, 지각능력 등을 <code>컴퓨터를 통해 구현</code>하는 포괄적인 개념</p>
+<p><strong>머신러닝(ML, Machine Learning)</strong><br>주어진 <code>데이터의 특성과 패턴을 학습</code>하고 이를 바탕으로 <code>새로운 데이터</code>에 대한 결과를 <code>예측</code>, 데이터 마이닝(Data Mining)이 데이터간의 상관관계나 속성을 찾는 것이 주 목적인 반면, 머신러닝은 상관관계를 통해 새로운 데이터의 결과를 예측하는 것에 목적을 두고 있음</p>
+<p><strong>딥러닝(DL, Deep Learning)</strong><br>머신러닝의 한 분야이며, 인공신경망(ANN, Artificial Neural Network)의 층을 깊게 하여 설계한 <code>딥 뉴럴 네트워크(Deep Neural Network)</code>로 학습하는 알고리즘의 집합</p>
+</blockquote>
+<h3 id="인공지능-🙄"><a href="#인공지능-🙄" class="headerlink" title="인공지능..? 🙄"></a>인공지능..? 🙄</h3><p><code>인공지능</code>이라고 하면 대부분은 <span class="exturl" data-url="aHR0cHM6Ly9tYmxvZ3RodW1iLXBoaW5mLnBzdGF0aWMubmV0L01qQXlNREF6TVRoZk5qQWcvTURBeE5UZzBORFkwT0RjeU5UUTEuZy0wLS1IMHlHMTIyN1RNUEFOdTVDWGJOTjBKcTlTaWJPQTM4MTFkMGxmTWcuaEhNVlhqOE44Y3lSSDgzdDNsdmQ4UXptZWl6M1lqX09Cc3FueGtjeWNSRWcuSlBFRy5teWhlYXJ0czE2LyVFQyU5NSU4NCVFQyU5RCVCNCVFQiVBMSU5QyVFQiVCNCU4N18lRUElQjIlQjAlRUIlQTclOTAuanBnP3R5cGU9dzgwMA==">아이, 로봇<i class="fa fa-external-link-alt"></i></span>이나 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtha2FvY2RuLm5ldC9kbi9IOHdKeC9idHF6SFRuc3lZMS9Nb3k4REExaTl1ck85cHFSUTJacEtLL2ltZy5qcGc=">터미네이터<i class="fa fa-external-link-alt"></i></span> 등에 나오는 기계와 같이 사람과 유사하거나 혹은 사람을 뛰어넘은 것들을 생각하지만, 인공지능이라는 용어 자체는 굉장히 포괄적이다.</p>
+<p>사실, 사람이 하는 일을 일부라도 기계로 대체할 수 있으면 그러한 모든 것은 <strong>인공지능</strong>이다. 그러니까, 학습하는 알고리즘이 아니라 단순히 <code>if-then-else</code>를 늘어놓은 알고리즘으로도 인공지능을 만들 수 있다는 말이다.<sup><a href="#IF-ELSE">1</a></sup></p>
+<p>이러한 방법은 <code>퍼지이론(Fuzzy Theory)</code>에 근거한 <code>Symbolic AI(Expert System)</code><sup><a href="#Expert-System">2</a></sup>이다. 지금과 같은 대 인공지능 시대가 오기 전에 버튼만 몇 개 눌러주면 손빨래를 하지 않아도 알아서 빨래를 해주는 <strong>세탁기</strong>와 같은 인공지능 기계<span class="exturl" data-url="aHR0cHM6Ly9pbWcxLmRhdW1jZG4ubmV0L3RodW1iL1IxMjgweDAuZmpwZy8/Zm5hbWU9aHR0cDovL3QxLmRhdW1jZG4ubmV0L2JydW5jaC9zZXJ2aWNlL3VzZXIvRzJOL2ltYWdlL2xET3pLd0t4bV9aVXcycTA4bTRYcG5ub0JTSS5qcGc=">(요즘에 말하는 인공지능 세탁기가 아니라)<i class="fa fa-external-link-alt"></i></span>가 실생활에 이미 들어왔었다는 뜻이다.</p>
+<br>
+<center>
+<img src="https://mblogthumb-phinf.pstatic.net/20120217_51/ktw108_1329408439677gTcez_JPEG/%B7%CE%C0%FA.jpg?type=w2" width="40%">
+<font size="2" color="gray"> 대-인공지능 시대를 맞는다. <font>
+</font></font></center>
+<br>
+
+<h3 id="머신러닝-🤯"><a href="#머신러닝-🤯" class="headerlink" title="머신러닝..?? 🤯"></a>머신러닝..?? 🤯</h3><p>Symbolic AI은 전문가들의 Knowledge base로 규칙을 만들어 행동 패턴을 모델링(Rule-based Modeling)하는 방법이다. 그러나 전통적인 Symbolic AI는 학습 단계가 없다는 한계점이 있다. 이러한 한계점으로 인해 Task가 복잡해질수록 Symbolic AI으로 높은 성능을 내기는 어려웠고, 이를 대체하기 위해 나온 방법이 <code>머신러닝</code>이다.</p>
+<p>대부분의 머신러닝 기법은 Symbolic AI에서 파생된 인공지능 방법론으로 일종의 통계학이다. 다만 Symbolic AI가 전문가의 지식을 하드 코딩으로 규칙을 만들고 이 규칙에 따라 데이터를 입력하면 정답을 출력하는 반면, 머신러닝은 데이터와 통계적 방법을 활용하여 규칙을 도출하는 방식으로 되어있다.</p>
+<br>
+<center>
+<img src="https://i.pinimg.com/736x/e1/63/48/e1634867bf7a35ead5dc0d40b912f471.jpg" width="50%">
+<font size="2" color="gray"> 머신러닝은 블랙박스 <font>
+</font></font></center>
+<br>
+
+<p>이러한 통계적 모델링(Statictical Modeling) 방법은 데이터를 활용하며, 보통 <strong>학습 단계</strong>와 <strong>추론 단계</strong>로 나누어져 있다. Symbolic AI와 통계학을 가장 직관적으로 접목시킨 머신러닝 알고리즘이 <strong>Decision Tree</strong>가 아닐까 싶다.</p>
+<p><strong>러닝</strong>이란 워딩이 들어간만큼 방법론에 따라 혹은 Task에 따라 학습의 종류도 나뉘는데, 크게 <code>지도학습(Supervised Learning)</code>과 <code>비지도학습(Unsupervised Learning)</code><sup><a href="#Unsupervised-Learning">3</a></sup>으로 구분된다. 후에, 딥러닝이 발전하면서 추가적으로 <code>강화학습(Reinforcement Learning)</code>이라는 카테고리도 생겼으며, <code>준지도학습(Semi-Supervised Learning)</code> 등도 존재하지만 일반적으로 지도학습, 비지도학습과 강화학습을 가장 큰 카테고리로 보고있다.</p>
+<blockquote>
+<p><strong>지도학습(Supervised Learning)</strong><br><code>입력 값과 정답(값 혹은 분포)을 포함하는 학습 데이터(Training Data)</code>를 이용하여 학습하고, 그 학습된 결과를 바탕으로 새로운 데이터(Test Data)에 대해 결과 값을 예측(Prediction, Inference), 지도학습은 학습 결과를 바탕으로 Task에 따라 다시 크게 <code>회귀(Regression)</code>, <code>분류(Classification)</code><sup><a href="#Regression-Classificaion">4</a></sup> 등으로 구분</p>
+<p><strong>비지도학습(Unsupervised Learning)</strong><br><code>정답이 없는 입력 값으로만 구축된 학습 데이터</code>를 이용하여 학습하고, 입력에 대한 정답을 찾는 것이 아닌 입력 값의 유사도(Similarity), 패턴(Pattern), 특성(Feature) 등을 학습을 통해 발견하는 방법을 말함, Task에 따라 다시 <code>군집화(Clustering)</code>나 <code>차원 축소(Dimensionality Reduction)</code> 등으로 구분</p>
+<p><strong>강화학습(Reinforcement Learning)</strong><br>소프트웨어 에이전트(Agent)가 환경(Environment) 내에서 <code>보상(Reward)이 최대화</code>되는 방향으로 행동(Action)을 수행하도록 학습 하는 기법</p>
+</blockquote>
+<br>
+<center>
+<img src="https://i.redd.it/8lfied3ohyp11.jpg" width="50%">
+<font size="2" color="gray"> 학습 중... origin by <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9vdXJza3kuaGsv">@oursky.hk<i class="fa fa-external-link-alt"></i></span><font>
+</font></font></center>
+<br>
+
+<p>지도학습, 비지도학습과 강화학습의 정의는 위의 설명과 같으며, 지도학습을 위한 알고리즘은 위에서 말한 <strong>Decision Tree</strong>나 <strong>SVM</strong>, <strong>Logistic Regression</strong> 등이 있고, 비지도학습은 <strong>K-Means</strong>, <strong>KNN</strong>, <strong>DBSCAN</strong>, <strong>PCA</strong> 등이 있으며, 강화학습은 기본적으로 뉴럴 네트워크(Neural Network)를 기반으로하며 <strong>DQN(Deep Q-Networks)</strong> 등이 있다.</p>
+<p>특히 뉴럴 네트워크, 그러니까 우리가 딥러닝이라 부르는 방법론은 지도학습과 비지도학습, 강화학습까지 모든 Task에서 활용할 수 있으며, 가장 메인스트림을 이루고 있는 지도학습 분야에서도 회귀나 분류를 가리지 않기 때문에, 사실상 현재의 새로운 머신러닝 알고리즘은 딥러닝으로부터 나오기 때문에 머신러닝과 딥러닝이라는 단어를 동일시보는 사람들도 많다.</p>
+<br>
+<center>
+<img src="https://miro.medium.com/max/1000/1*x7P7gqjo8k2_bj2rTQWAfg.jpeg" width="50%">
+<font size="2" color="gray"> 사실은 이런걸지도..? origin by <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zYW5kc2VyaWZjb21pY3Mv">@sandserifcomics<i class="fa fa-external-link-alt"></i></span><font>
+</font></font></center>
+<br>
+
+<h3 id="딥러닝-🤮"><a href="#딥러닝-🤮" class="headerlink" title="딥러닝..??? 🤮"></a>딥러닝..??? 🤮</h3><p>많은 사람들이 알다시피, 딥러닝은 인간(혹은 인지동물)의 뇌 구조를 본떠 만든 인공신경망(Artificical Neural Network)으로 뇌과학과도 긴밀한 관계<sup><a href="#Neuroscience">5</a></sup>를 갖고 있으며, 딥러닝이라는 용어는 딥 뉴럴 네트워크(Deep Neural Network)에서 리브랜딩한 것일 뿐이다.</p>
+<p>사실, <code>딥러닝</code>은 인공지능 역사의 근-본에 가장 가깝다. 딥러닝의 전신인 <code>퍼셉트론(Perceptron)</code>으로부터 실질적인 인공지능의 연구가 시작되었으며, 퍼셉트론은 XOR 문제를 해결하기 위해 <code>다층 퍼셉트론(Multi-Layer Perceptron)</code>으로 발전했고, 긴 기간동안 AI Winter라고 불리는 두 번의 암흑기를 거쳐 현재의 딥러닝이 되었다.</p>
+<p>XOR 문제로 처음 퍼셉트론의 허점이 드러나게 되면서 Symbolic AI를 지지하는 사람들이 생겨났고, 인공지능의 학파는 Symbolic AI를 지지하는 쪽과 Non-Symbolic AI, 즉 <code>연결주의(Connectionism)</code>라는 신경망을 지지하는 쪽으로 나뉘게 되었다.</p>
+<br>
+<center>
+<img src="https://i.redd.it/5193db0avbey.jpg" width="50%">
+<font size="2" color="gray"> 아 모르겠고 레이어나 더 쌓아 <font>
+</font></font></center>
+<br>
+
+<p>최근에서야 컴퓨팅 파워나 빅데이터의 발전으로 딥러닝이 어깨를 피면서 연결주의 학파가 승리했다고 생각하지만, 예전만 해도 신경망 기반으로 AI를 연구한다고 하면 블랙박스를 설명하기도 어려울 뿐더러 지원금도 뚝 끊기기도 해서 설명하기 쉬운 Symbolic AI 쪽이 주를 이루었다고 한다.<strong><em>(존버는 승리한다..?)</em></strong></p>
+<h2 id="그래서-지금은"><a href="#그래서-지금은" class="headerlink" title="그래서, 지금은"></a>그래서, 지금은</h2><br>
+<center>
+<img src="https://miro.medium.com/max/1400/1*MkPk6IVlNyCjSmCIE000pg.png" width="70%">
+<font size="2" color="gray"> 한 눈에 보는 인공지능의 역사 origin by <span class="exturl" data-url="aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL3RyYWRpdGlvbmFsLWFpLXZzLW1vZGVybi1haS01MTE3YjQ2OWEwYzk=">Awais Bajwa<i class="fa fa-external-link-alt"></i></span><font>
+</font></font></center>
+<br>
+
+<p>지금은 당연히 딥러닝의 시대다. 인공지능 Task에 대해서 나오는 알고리즘은 모두 딥러닝이고 우승 모델도 다 딥러닝이다. 인공지능 시스템을 위한 생태계(Ecosystem)도 거의 대부분 딥러닝에 최적화 되어 있다. 그럴 수 밖에 없다. 너무 성능의 차이가 압도적이니까. 다른 머신러닝 방법론은 더 이상 메인스트림에 오르지 못한다. 오늘의 모든 방법론은 딥러닝으로부터 비롯된다.</p>
+<p>그렇지만 간혹, 다시금 세번째 겨울이 오네마네 하는 소리가 들리곤 한다. 점차 현재의 신경망으로 닿을 수 있는 성능의 한계치에 수렴하는 느낌이 강하고, AGI 같은 범용인공지능을 만들려면 지금의 신경망으로는 턱없이 부족하기 때문이다. 또한, 딥러닝이 블랙박스로 지속되는 한 대중들에게 기술의 신뢰성을 얻어내기는 어려울 것이다.</p>
+<p>이러한 상황을 극복하고자 블랙박스를 화이트박스로 만들기 위한 <code>설명 가능한 인공지능(XAI, eXplainable AI)</code>에 대한 연구나 딥러닝에 Symbolic AI를 결합하려는 <code>Neuro-Symbolic AI</code>과 같은 시도가 계속해서 나오고 있다.<em>(물론, 둘다 한참 멀었다고 생각한다.)</em> 그래서 우리는 딥러닝이 발전을 해도 다른 머신러닝 기법이나 선형 대수(Linear Algebra) 컨벡스 최적화(Convex Optimization), 통계적 학습(Statistical Learning)과 같은 기반 지식을 계속해서 공부해야 하나보다..<span class="github-emoji" alias="pensive" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f614.png?v8">&#x1f614;</span></p>
+<hr>
+<p><a name="IF-ELSE">[1]</a> 학습의 방법을 몰랐을 때, 내가 처음 생각한 인공지능의 방법론이다.<br><a name="Expert-System">[2]</a> 1997년 세계 체스 챔피언을 이긴 IBM Watson 연구소의 Deep Blue도 이러한 방식으로 만들어졌다.<br><a name="Unsupervised-Learning">[3]</a> 개인적으로 비지도학습은 궁극적으로 지도학습을 하기 위한 수단이라고 생각한다.<br><a name="Regression-Classificaion">[4]</a> 회귀와 분류는 결과 값이 수치형(Numerical)이냐 범주형(Categorical)이냐의 차이에 따라 구분된다.<br><a name="Neuroscience">[5]</a> 현재까지도 심리학이나 뇌과학 분야에서 딥러닝을 많이 연구하고 있는 것으로 알고 있다.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Jim
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/" title="딥러닝, 처음 접하는 사람들을 위한 기초">https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Convolutional-Neural-Network/" rel="tag"># Convolutional Neural Network</a>
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          </div>
+
+        
+
+<br>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jiminthebox.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/06/global-interpreter-lock/" rel="prev" title="Python GIL(Global Interpreter Lock)이 뭐에요?">
+      <i class="fa fa-chevron-left"></i> Python GIL(Global Interpreter Lock)이 뭐에요?
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#들어가며"><span class="nav-number">1.</span> <span class="nav-text">들어가며</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#인공지능-머신러닝-딥러닝-다-같은-말-아녜요-🤔"><span class="nav-number">2.</span> <span class="nav-text">인공지능? 머신러닝?? 딥러닝??? 다 같은 말 아녜요? 🤔</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#인공지능-🙄"><span class="nav-number">2.1.</span> <span class="nav-text">인공지능..? 🙄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#머신러닝-🤯"><span class="nav-number">2.2.</span> <span class="nav-text">머신러닝..?? 🤯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#딥러닝-🤮"><span class="nav-number">2.3.</span> <span class="nav-text">딥러닝..??? 🤮</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#그래서-지금은"><span class="nav-number">3.</span> <span class="nav-text">그래서, 지금은</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jim" src="/images/jim_zepeto.jpeg">
+  <p class="site-author-name" itemprop="name">Jim</p>
+  <div class="site-description" itemprop="description">Machine Learning Engineer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmdqd2xhbHMxMTFAZ21haWwuY29t" title="EMail → mailto:gjwlals111@gmail.com"><i class="fa fa-paper-plane fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9qaW1pbnRoZWJveC5ub3Rpb24uc2l0ZS9KaW0tODE2YmNiYjQxZTg5NGEzZWE3YjAzZDA2NzliMDQwZDIv" title="Resume → https:&#x2F;&#x2F;jiminthebox.notion.site&#x2F;Jim-816bcbb41e894a3ea7b03d0679b040d2&#x2F;"><i class="fa fa-portrait fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ppbUhlbw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JimHeo"><i class="fab fa-github-alt fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ppbWludGhlYm94MDIxOA==" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;jiminthebox0218"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="night-mode motion-element">
+  <a role="button" class="night-btn">
+    <i class="fa fa-adjust"></i>
+    Dark Mode
+  </a>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-code"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JimintheBox</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">36k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">33 mins.</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/";
+    this.page.identifier = "2021/07/27/deep-learning-from-scratch/";
+    this.page.title = "딥러닝, 처음 접하는 사람들을 위한 기초";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jiminthebox.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+// <script>
+//   ((w, d) => {
+//     'use strict';
+//
+//       let userScheme = localStorage.getItem('Scheme');
+//       if (userScheme) d.documentElement.className += ' darkScheme';
+//       const btn = d.querySelector('.night-btn');
+//       w.addEventListener('keydown', e => {
+//         if (e.altKey && e.code === 'KeyX') btn.click();
+//       });
+//       btn.addEventListener('click', () => {
+//         d.documentElement.classList.toggle('darkScheme');
+//         if ( d.documentElement.classList.contains('darkScheme') ) {
+//           localStorage.setItem('Scheme', 'Dark');
+//           return;
+//         }
+//         localStorage.removeItem('Scheme');
+//       });
+//
+//
+//   })(window, document);
+// </script>
+
+    </div>
+
+  <script>
+  ((w, d) => {
+    'use strict';
+      let userScheme = localStorage.getItem('Scheme');
+      if (userScheme) d.documentElement.className += ' darkScheme';
+      const btn = d.querySelector('.night-mode');
+
+      btn.addEventListener('click', () => {
+        d.documentElement.classList.toggle('darkScheme');
+
+        var disqus_config = function() {
+          this.page.url = "https://jimheo.github.io/2021/07/27/deep-learning-from-scratch/";
+          this.page.identifier = "2021/07/27/deep-learning-from-scratch/";
+          this.page.title = "딥러닝, 처음 접하는 사람들을 위한 기초";
+          };
+        w.DISQUS.reset({
+          reload: true,
+          config: disqus_config
+        });
+
+        if ( d.documentElement.classList.contains('darkScheme') ) {
+          localStorage.setItem('Scheme', 'Dark');
+          return;
+        }
+        localStorage.removeItem('Scheme');
+      });
+  })(window, document);
+</script>
+
+
+
+  <script id="dsq-count-scr" src="//jiminthebox.disqus.com/count.js" async></script>
+</body>
+</html>
